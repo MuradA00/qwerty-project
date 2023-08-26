@@ -1,0 +1,93 @@
+// --------------- hex to rgba mixin ---------------
+@function HexToRGB($hex) {
+  @return red($hex), green($hex), blue($hex);
+}
+:root {
+// --------------- default global variable ---------------
+  --root-py: clamp(60px, 5vw, 80px);
+  --delay-transition: cubic-bezier(0.86, 0, 0.07, 1);
+  --body-bg: #12192B;
+  --footer-bg: #0C1323;
+  --body-font-size: 16px;
+  --content-width: 1214px;
+  --content-width-mode: 1214px;
+  --container-offset: 15px;
+  --container-width: calc(var(--content-width) + (var(--container-offset) * 2));
+  --container-width-mode: calc(var(--content-width-mode) + (var(--container-offset) * 2));
+
+// --------------- default JS variable ---------------
+  --header-height: 62px;
+
+  --size: Min(24vw, 264px);
+// --------------- default JS tablet variable ---------------
+  // @media (max-width: 1024px) {
+  //   --header-height: 65px;
+  // }
+
+// --------------- default JS small-tablet variable ---------------
+  // @media (max-width: 767px) {
+  //   --header-height:82px;
+  // }
+
+
+// --------------- font - sizes -------------------------
+--t-xxs: 10px;
+--t-xs: 12px;
+--t-sm: 14px;
+--t-base: 16px;
+--t-md: 18px;
+--t-lg: 20px;
+--t-xl: 24px;
+--t-xxl: 26px;
+--t-xxl-2: 28px;
+--t-xxl-3: 32px;
+--t-xxl-4: 36px;
+// --------------- default scroll variable ---------------
+  --scrollbar-thumb: #6866F6;
+  --scrollbar-thumb-hover: #f6866F6ff;
+  --scrollbar-track:  #05031d;
+  --scrollbar-track-hover: #05031d;
+  --overlay-bg: rgba(0, 0, 0, 0.5);
+
+// --------------- default slect variable ---------------
+// --------------- default font-family variable ---------------
+  --ff-o: "Oswald", sans-serif; // var(--font-family);
+  --ff-r: "Roboto" , sans-serif; // var(--font-family2);
+
+// --------------- default text color variable ---------------
+  // --burger-cl: #{HexToRGB(#00d655)};
+
+  --cl-main: #{HexToRGB(#ea4d27)}; // rgba(var(--cl-a),1.0);
+  --cl-o: #{HexToRGB(#CD8A5A)};
+  --cl-ppl: #{HexToRGB(#7B5ACD)};
+  --cl-y: #{HexToRGB(#CDBB5A)};
+  --cl-p: #{HexToRGB(#C45ACD)};
+  --cl-bl: #{HexToRGB(#5A9DCD)};
+  --cl-b: #{HexToRGB(#000000)}; // rgba(var(--cl-b),1.0);
+  --cl-w: #{HexToRGB(#ffffff)}; // rgba(var(--cl-c),1.0);
+  --cl-2: #{HexToRGB(#52514C)}; // rgba(var(--cl-d),1.0);
+  --cl-2_hint: #{HexToRGB(#1E6FF6)}; // rgba(var(--cl-e),1.0);
+
+
+// --------------- default background cl variable ---------------
+  --bg-1: #{HexToRGB(#1d1d1d)}; // rgba(var(--bg-a),1.0);
+  --bg-2: #{HexToRGB(#F2F1EC)}; // rgba(var(--bg-b),1.0);
+  --bg-3: #{HexToRGB(#EE5834)}; // rgba(var(--bg-c),1.0);
+// --------------- default border cl variable ---------------
+  --br-a: #3D3E5C; // var(--br-a);
+  --br-b: #262D3D; // var(--br-b);
+  --br-c: #D72F33; // var(--br-c);
+  --br-d: #1E6FF6; // var(--br-d);
+  --br-e: #ECBF08; // var(--br-e);
+
+  --br-f: #546DB3; // var(--br-f);
+  --br-g: #66F6A8; // var(--br-g);
+
+
+// --------------- gradient background cl variable ---------------
+// ---------------default background modal variable-----------
+
+--bm-a: #{HexToRGB(#253A75)}; // rgba(var(--bm-a),1.0);
+--bm-b: #{HexToRGB(#6966f600)}; // rgba(var(--bm-b),1.0);
+--bm-c: #{HexToRGB(#08142800)}; // rgba(var(--bm-c),1.0);
+}

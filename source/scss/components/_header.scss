@@ -1,0 +1,132 @@
+.header {
+  --header-content-gap: 3.375rem;
+
+  background-color: rgba(var(--bg-1),1);
+
+  padding: clamp(20px, 1.875vw, 30px) 0 var(--root-py) 0;
+
+  color: rgba(var(--cl-w), 1);
+
+  &-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &__col {
+      display: flex;
+      align-content: center;
+      grid-gap: 40px;
+    }
+  }
+  &-top {
+    margin-bottom: clamp(34px, 5vw, 80px);
+  }
+  &-title {
+    font-size: 56px;
+    text-transform: uppercase;
+    font-weight: 600;
+
+    transform: translateY(-1rem);
+
+    grid-column: 1 / 7;
+
+    @include small-tablet {
+      font-size: 34px;
+    }
+  }
+  &-mob-btn {
+    display: none;
+  }
+  &-content {
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    grid-gap: var(--header-content-gap);
+  }
+  &-arrow {
+    grid-column: 7 / 10;
+    img {
+      max-width: 150px;
+    }
+  }
+  &-info {
+    grid-column: 7 / 10;
+  }
+  &-logo {
+    --logo-w: 46px;
+
+    position: relative;
+    &__icon {
+      max-width: var(--logo-w);
+
+      img, svg {
+        display: block;
+        width: 100%;
+      }
+    }
+    &__hidden {
+      width: max-content;
+      position: absolute;
+      left: calc(var(--logo-w) + 14px);
+      bottom: 0;
+
+      transition: transform 400ms ease, opacity 200ms ease;
+
+      transform: translateX(-1rem);
+      opacity: 0;
+
+      pointer-events: none;
+
+      img, svg {
+        display: block;
+        width: 100%;
+      }
+    }
+    @include hover {
+      .header-logo__hidden {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+  }
+}
+
+@include tablet {
+  .header {
+    &-content {
+      grid-template-columns: repeat(5, 1fr);
+      grid-gap: 1.875rem;
+      grid-template-areas:
+      'title title title title title'
+      'info info info arrow arrow'
+      'btn btn btn btn btn';
+    }
+    &-title {
+      grid-area: title;
+      transform: translateY(0);
+    }
+    &-arrow {
+      grid-area: arrow;
+
+      display: flex;
+      justify-content: flex-end;
+
+      img {
+        --arrow-ratio: 100px;
+
+        width: var(--arrow-ratio);
+        height: var(--arrow-ratio);
+
+        aspect-ratio: 1 / 1;
+      }
+    }
+    &-mob-btn {
+      display: flex;
+      grid-area: btn;
+
+      margin-top: 0.625rem;
+    }
+    &-info {
+      grid-area: info;
+    }
+  }
+}
