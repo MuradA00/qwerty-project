@@ -289,6 +289,8 @@ fieldset {
   @include dfc;
   text-align: center;
 
+  background-color: var(--bg-current);
+
   padding: var(--root-py) var(--root-px);
 
   border: 1px solid rgba(var(--cl-current), 1);

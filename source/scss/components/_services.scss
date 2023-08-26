@@ -1,3 +1,207 @@
 .services {
+  --root-card-py: 1.875rem;
+  --root-card-px: 1.25rem;
+  --btn-max-w: 15rem;
+
   background-color: rgba(var(--bg-2), 1);
+}
+
+.card {
+  --order-h: 4.25rem;
+
+  padding: var(--root-card-py) var(--root-card-px);
+
+  border: 1px solid rgba(var(--cl-b),1);
+
+  &:not(:last-child) {
+    margin-bottom: 10px;
+  }
+
+  &-order {
+    color: rgba(var(--cl-main), 1);
+    font-size: 84px;
+
+    line-height: 80%;
+
+    position: absolute;
+
+    top: 0;
+    right: 0;
+    width: 25%;
+  }
+  &-list {
+    width: 25%;
+
+    margin-top: calc(var(--order-h) + 1.875rem);
+
+    &--mob {
+      display: none;
+    }
+
+    &__item {
+      --bullet-ratio: 5px;
+
+      display: flex;
+      align-items: center;
+      grid-gap: 10px;
+
+      font-size: var(--t-md);
+      font-family: var(--ff-r);
+      line-height: 100%;
+
+      &:not(:last-child) {
+        margin-bottom: clamp(10px, 1.25vw, 20px);
+      }
+
+      &-bullet {
+        flex: 0 0 auto;
+
+        display: block;
+
+        width: var(--bullet-ratio);
+        height: var(--bullet-ratio);
+
+        background-color: rgba(var(--cl-b), 1);
+
+        &--square {
+          border-radius: 0;
+        }
+        &--circle {
+          border-radius: 50%;
+        }
+        &--triangle {
+          --bullet-ratio: 7px;
+
+          height: 8px;
+
+          clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+        }
+      }
+    }
+  }
+  &-grid {
+    position: relative;
+    &__content {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+    }
+    &__inner {
+      max-width: 30rem;
+    }
+    &__header {
+      font-size: clamp(var(--t-xxl-2), 2.25vw, var(--t-xxl-4));
+      font-weight: 500;
+      line-height: 130%;
+      margin-bottom: 1.25rem;
+      text-transform: uppercase;
+    }
+    &__overlay {
+      --bg-current: rgba(var(--cl-b), 1);
+      --cl-current: rgba(var(--cl-b), 1);
+
+      position: absolute;
+
+      left: 0;
+      top: 0;
+
+      height: max-content;
+
+      transform: translateX(calc(-1 * (100% + 1px)));
+
+      overflow: hidden;
+
+      transition: transform 400ms var(--delay-transition);
+
+      @include hover {
+        .button-text {
+          color: rgba(var(--cl-w), 1);
+        }
+      }
+
+      &::before {
+        display: none;
+      }
+    }
+    &__info {
+      p {
+        color: rgba(var(--cl-2), 1);
+      }
+    }
+    &__btn {
+      overflow: hidden;
+      min-height: 3.375rem;
+      position: relative;
+      margin-top: 1.25rem;
+
+      width: 100%;
+      max-width: var(--btn-max-w);
+
+      @include hover {
+        .card-grid__overlay {
+          transform: translateX(0);
+        }
+      }
+
+      &-price {
+        color: rgba(var(--cl-b), 1);
+        display: flex;
+        grid-gap: 5px;
+        align-items: flex-end;
+        font-size: var(--t-md);
+        line-height: 140%;
+
+        & > span {
+          color: rgba(var(--cl-main), 1);
+          font-size: var(--t-xxl-4);
+          font-weight: 500;
+          font-family: var(--ff-o);
+          line-height: 120%;
+        }
+      }
+    }
+  }
+}
+
+@include laptop {
+  .card {
+    &-list {
+      &--mob {
+        width: auto;
+        display: block;
+        margin: 0;
+
+        grid-area: list;
+      }
+      &--desk {
+        display: none;
+      }
+    }
+    &-grid {
+      &__header {
+        grid-area: header;
+      }
+      &__info {
+        grid-area: info;
+      }
+      &__btn {
+        grid-area: 'price';
+
+        margin-bottom: 1.25rem;
+      }
+      &__inner {
+        display: grid;
+        max-width: 100%;
+        grid-template-columns: 100%;
+        grid-template-areas:
+        'header'
+        'list'
+        'price'
+        'info';
+      }
+      &__content {
+        flex-direction: column;
+      }
+    }
+  }
 }
