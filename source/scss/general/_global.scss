@@ -359,3 +359,44 @@ p {
   line-height: 140%;
   font-family: var(--ff-r);
 }
+
+.fixed-button {
+  position: fixed;
+
+  bottom: 0;
+  right: 1rem;
+
+  padding: 1.125rem 2.5rem;
+
+  background-color: rgba(var(--cl-main), 1);
+
+  border-radius: 0;
+
+  @include dfc;
+  text-align: center;
+
+  transition: transform 300ms ease, filter 300ms ease;
+
+  transform: translateY(100%);
+
+  z-index: 5;
+
+  @include hover {
+    filter: brightness(80%);
+  }
+
+  &--active {
+    transform: translateY(0);
+  }
+
+  &__text {
+    color: rgba(var(--cl-b), 1);
+
+    font-size: var(--t-md);
+    text-transform: uppercase;
+    letter-spacing: .36px;
+    font-weight: 500;
+    font-family: var(--ff-r);
+    line-height: 100%;
+  }
+}
