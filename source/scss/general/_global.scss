@@ -400,3 +400,30 @@ p {
     line-height: 100%;
   }
 }
+
+@include mobile {
+  .fixed-button {
+    padding: 1.125rem 3rem;
+  }
+}
+
+.def-header {
+  --cl-header: var(--cl-w);
+
+  text-transform: uppercase;
+  font-size: 58px;
+  font-weight: 600;
+  line-height: 130%;
+
+  color: rgba(var(--cl-header), 1);
+
+  &--black {
+    --cl-header: var(--cl-b);
+  }
+}
+
+@include mobile {
+  .def-header {
+    font-size: 34px;
+  }
+}

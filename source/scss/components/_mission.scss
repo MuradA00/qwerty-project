@@ -84,3 +84,21 @@
     }
   }
 }
+
+@include laptop {
+  .mission {
+    &__head {
+      animation: none;
+    }
+  }
+}
+
+@include small-tablet {
+  .mission {
+    &__row {
+      display: flex;
+      flex-direction: column;
+      grid-gap: 36px;
+    }
+  }
+}

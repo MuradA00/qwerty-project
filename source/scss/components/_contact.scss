@@ -1,0 +1,27 @@
+.contact {
+  background-color: rgba(var(--bg-1), 1 );
+
+  &-grid {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-gap: 40px;
+    grid-template-areas:
+    'head head head head head arrow arrow'
+    ''
+  }
+  &-title {
+    grid-area: title;
+  }
+  &-arrow {
+    grid-area: arrow;
+  }
+  &-links {
+    grid-area: links;
+  }
+  &-social {
+    grid-area: social;
+  }
+  &-button {
+    grid-area: button;
+  }
+}

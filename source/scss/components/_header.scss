@@ -10,10 +10,10 @@
   &__body {
     padding-top: 180px;
   }
-  &-fixed {
+  &-dynamic {
     padding-top: 30px;
 
-    transition: transform 300ms ease;
+    transition: opacity 400ms ease, background-color 300ms ease;
     min-height: 60px;
 
     position: absolute;
@@ -25,7 +25,6 @@
 
     &--sticky {
       position: fixed;
-      transform: translateY(-100%);
       opacity: 0;
       visibility: hidden;
       pointer-events: all;
@@ -33,6 +32,12 @@
       width: 100%;
 
       position: fixed;
+
+      @include hover {
+        &:hover {
+          background-color: rgba(var(--bg-1), 1);
+        }
+      }
     }
     &--active {
       transform: translateY(0);
@@ -85,17 +90,9 @@
     margin-bottom: clamp(34px, 5vw, 80px);
   }
   &-title {
-    font-size: 56px;
-    text-transform: uppercase;
-    font-weight: 600;
-
     transform: translateY(-1rem);
 
     grid-column: 1 / 7;
-
-    @include small-tablet {
-      font-size: 34px;
-    }
   }
   &-mob-btn {
     display: none;
@@ -155,6 +152,16 @@
 
 @include tablet {
   .header {
+    &-logo {
+      &__icon {
+
+      }
+    }
+    &-dynamic {
+      &--active {
+        background-color: rgba(var(--bg-1), 1);
+      }
+    }
     &-content {
       grid-template-columns: repeat(5, 1fr);
       grid-gap: 1.875rem;
@@ -190,6 +197,38 @@
     }
     &-info {
       grid-area: info;
+    }
+  }
+}
+
+#output {
+  white-space: pre;
+  overflow: hidden;
+}
+
+.highlight {
+  background-color: white;
+  display: inline-block;
+  transform-origin: 0 100%;
+  transform: scaleY(0);
+  transition: transform 0.1s ease-in-out;
+}
+
+@include laptop {
+  .header {
+    &__body {
+      padding-top: 100px;
+    }
+    &-row {
+      &__col {
+        display: none;
+      }
+    }
+    &-dynamic {
+      padding: 20px 0;
+    }
+    &-logo {
+      --logo-w: 30px;
     }
   }
 }
