@@ -176,7 +176,7 @@ const scripts = () => {
         fallback: {
           "path": require.resolve("path-browserify")
         }
-      } 
+      }
     }))
     .on('error', function (err) {
       console.error('WEBPACK ERROR', err);
@@ -221,7 +221,7 @@ const scriptsBackend = () => {
         fallback: {
           "path": require.resolve("path-browserify")
         }
-      } 
+      }
     }))
     .on('error', function (err) {
       console.error('WEBPACK ERROR', err);
@@ -292,7 +292,7 @@ const watchFiles = () => {
   watch(`${paths.srcPartialsFolder}/**/*.html`, htmlInclude);
   watch(`${srcFolder}/*.html`, htmlInclude);
   watch(`${paths.resourcesFolder}/**`, resources);
-  watch(`${paths.srcImgFolder}/**/**.{jpg,jpeg,png,svg}`, images);
+  watch(`${paths.srcImgFolder}/**/**.{jpg,jpeg,png,svg,gif}`, images);
   watch(`${paths.srcImgFolder}/**/**.{webm,mp4,MPEG-4}`, video);
   watch(`${paths.srcImgFolder}/**/**.{jpg,jpeg,png}`, webpImages);
   watch(paths.srcSvg, svgSprites);

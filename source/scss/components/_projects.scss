@@ -5,6 +5,30 @@
 
   background-color: rgba(var(--bg-2), 1);
 
+  &-more {
+    @include dfc;
+
+    display: none;
+
+    padding: var(--root-orange-btn-py) var(--root-orange-btn-px);
+
+    background-color: rgba(var(--cl-main), 1);
+
+    text-align: center;
+
+    width: 100%;
+
+    &__text {
+      color: rgba(var(--cl-b), 1);
+
+      text-transform: uppercase;
+
+      line-height: 100%;
+      font-family: var(--ff-r);
+      font-size: var(--t-md);
+      font-weight: 500;
+    }
+  }
   &-grid {
     display: grid;
     grid-template-columns: repeat(var(--gallery-grid-cols), 1fr);
@@ -123,7 +147,25 @@
         --grid-image-h: 310px;
         grid-area: banana;
       }
+      &-gif {
+        position: absolute;
 
+        width: 100%;
+        height: var(--grid-image-h);
+
+        top: 0;
+        left: 0;
+
+        transition: transform 400ms ease;
+
+        transform: translateX(-100%);
+
+        img {
+          display: block;
+          width: 100%;
+          height: inherit;
+        }
+      }
       &-image {
         height: var(--grid-image-h);
 
@@ -148,9 +190,20 @@
 
 @include small-tablet {
   .projects {
+    &-more {
+      display: flex;
+    }
     &-grid {
       display: flex;
       flex-direction: column;
+
+      margin-bottom: 20px;
+
+      &__item {
+        &:not(.projects-grid__item--visible) {
+          display: none;
+        }
+      }
     }
   }
 }
