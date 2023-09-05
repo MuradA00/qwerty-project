@@ -35,6 +35,10 @@ body {
   }
 }
 
+.body-locked {
+  overflow: hidden;
+}
+
 main {
   flex: 1;
 }

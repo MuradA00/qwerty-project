@@ -66,6 +66,16 @@
 
     z-index: 5;
 
+    &--menu {
+      position: fixed !important;
+
+      opacity: 1 !important;
+
+      visibility: visible !important;
+
+      background-color: rgba(var(--bg-1), 1);
+    }
+
     &--sticky {
       position: fixed;
       opacity: 0;
@@ -265,7 +275,7 @@
       }
     }
     &-dynamic {
-      padding: 20px 0;
+      padding: 10px 0;
     }
     &-logo {
       --logo-w: 30px;
