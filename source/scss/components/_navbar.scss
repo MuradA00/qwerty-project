@@ -1,21 +1,42 @@
 .navbar {
+  position: relative;
+
+  z-index: 10;
+
   mix-blend-mode:difference;
 
-  position: fixed;
+  @include laptop {
+    position: fixed;
+  }
 
-  left: 50%;
-  top: 50%;
+  &__container {
+    position: unset;
 
-  transform: translate(-50%, -50%);
-
+  }
   width: 100%;
-
+  &-options {
+    display: none;
+  }
   &-list {
     display: flex;
     flex-direction: column;
     grid-gap: 30px;
 
     width: fit-content;
+
+    position: fixed;
+    z-index: 10;
+
+    max-width: var(--container-width);
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    @include laptop {
+      position: initial;
+      transform: translateY(0);
+    }
 
     &__link {
       font-family: var(--ff-r);
@@ -46,6 +67,12 @@
 
         transition: all 400ms ease;
       }
+      &--active {
+        &::before {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
       @include hover {
         &::before {
           transform: scale(1);
@@ -58,6 +85,8 @@
 
 @include laptop {
   .navbar {
+    --container-pt: 38px;
+
     mix-blend-mode: normal;
 
     background-color: rgba(var(--bg-1), 1);
@@ -65,14 +94,12 @@
     top: 62px;
     left: 0;
 
-    padding-top: 38px;
-
     transform: translate(0, -150%);
 
     width: 100%;
     height: 100%;
 
-    z-index: 5;
+    z-index: 10;
 
     visibility: hidden;
 
@@ -85,8 +112,35 @@
       visibility: visible;
       pointer-events: all;
     }
+    &__container {
+      overflow-y: scroll;
 
+      display: flex;
+      flex-direction: column;
+
+      padding-top: var(--container-pt);
+      height: calc(100% - (var(--container-pt) * 2));
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+    &-options {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      grid-gap: 20px;
+
+    }
+    &-button {
+      flex: 1;
+
+      width: 100%;
+
+      display: flex !important;
+    }
     &-list {
+      flex: 1;
       &__link {
         font-family: var(--ff-o);
         font-size: var(--t-xxl-2);

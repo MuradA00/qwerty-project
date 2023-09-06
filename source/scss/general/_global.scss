@@ -379,7 +379,7 @@ p {
   @include dfc;
   text-align: center;
 
-  transition: transform 300ms ease, filter 300ms ease;
+  transition: transform 300ms ease, filter 200ms ease;
 
   transform: translateY(100%);
 

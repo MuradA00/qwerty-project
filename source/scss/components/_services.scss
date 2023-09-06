@@ -3,6 +3,10 @@
   --root-card-px: 1.25rem;
   --btn-max-w: 15rem;
 
+  @include mobile {
+    --root-card-px: 1rem;
+  }
+
   background-color: rgba(var(--bg-2), 1);
 }
 
@@ -16,18 +20,51 @@
   &:not(:last-child) {
     margin-bottom: 10px;
   }
-
   &-order {
     color: rgba(var(--cl-main), 1);
     font-size: 84px;
 
-    line-height: 80%;
+    line-height: 90%;
 
     position: absolute;
 
     top: 0;
     right: 0;
     width: 25%;
+  }
+  &-collapse {
+    display: none;
+    width: var(--collapse-btn-ratio);
+    height: var(--collapse-btn-ratio);
+
+    position: relative;
+
+    &__bar {
+      position: absolute;
+
+      width: var(--bar-w);
+      height: var(--bar-h);
+
+      background-color: rgba(var(--cl-b), 1);
+
+      top: 50%;
+      left: 50%;
+
+      transform: translate(-50%, -50%) rotate(var(--bar-rotate));
+
+      transition: all 200ms ease-out;
+
+      &:nth-child(1) {
+        --bar-w: 2px;
+        --bar-h: var(--collapse-btn-ratio);
+        --bar-rotate: 0deg;
+      }
+      &:nth-child(2) {
+        --bar-w: var(--collapse-btn-ratio);
+        --bar-h: 2px;
+        --bar-rotate: 180deg;
+      }
+    }
   }
   &-list {
     width: 25%;
@@ -165,6 +202,37 @@
 
 @include laptop {
   .card {
+
+    min-height: 10.125rem;
+
+    &--active {
+      .card-grid__inner {
+        margin-top: 122px;
+      }
+      .card-collapse {
+        &__bar {
+          &:nth-child(1) {
+            --bar-rotate: 90deg;
+          }
+          &:nth-child(2) {
+            --bar-rotate: 360deg;
+          }
+        }
+      }
+    }
+
+    &-text-divider {
+      display: none;
+    }
+    &-order {
+      width: auto;
+      position: absolute;
+
+      top: 26px;
+    }
+    &-collapse {
+      display: block;
+    }
     &-list {
       &--mob {
         width: auto;
@@ -178,26 +246,49 @@
       }
     }
     &-grid {
+      position: relative;
+
+      z-index: 1;
+
       &__header {
         grid-area: header;
+        position: absolute;
+
+        transition: top 300ms ease;
+
+        top: calc(32px + var(--collapse-btn-ratio));
+
+        line-height: 100%;
+
+        margin-bottom: 0;
+
+        padding-right: 80px;
+
+        @include hide-text(1);
       }
       &__info {
         grid-area: info;
       }
       &__btn {
-        grid-area: 'price';
+        grid-area: price;
 
         margin-bottom: 1.25rem;
       }
       &__inner {
         display: grid;
         max-width: 100%;
-        grid-template-columns: 100%;
+        grid-template-columns: 1fr 1fr 1fr;
         grid-template-areas:
-        'header'
-        'list'
-        'price'
-        'info';
+        'list list list'
+        'price price price'
+        'info info info';
+
+        transition: all 300ms ease;
+
+        max-height: 0;
+        overflow: hidden;
+
+        margin-top: calc(40px + var(--collapse-btn-ratio));
       }
       &__content {
         flex-direction: column;

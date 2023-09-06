@@ -21,6 +21,13 @@
   );
 }
 
+@mixin hide-text($line) {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $line;
+  overflow: hidden;
+}
+
 @mixin footerToBottom {
   display: grid;
   min-height: 100vh;

@@ -16,6 +16,9 @@
   --container-width-mode: calc(var(--content-width-mode) + (var(--container-offset) * 2));
   --root-orange-btn-py: 18px;
   --root-orange-btn-px: 40px;
+  --collapse-btn-ratio: 30px;
+  --shape-ratio: 90px;
+  --logo-w: 46px;
 
 // --------------- default JS variable ---------------
   --header-height: 62px;
@@ -61,11 +64,11 @@
   // --burger-cl: #{HexToRGB(#00d655)};
 
   --cl-main: #{HexToRGB(#ea4d27)}; // rgba(var(--cl-a),1.0);
-  --cl-o: #{HexToRGB(#CD8A5A)};
-  --cl-ppl: #{HexToRGB(#7B5ACD)};
-  --cl-y: #{HexToRGB(#CDBB5A)};
-  --cl-p: #{HexToRGB(#C45ACD)};
-  --cl-bl: #{HexToRGB(#5A9DCD)};
+  --cl-type-2: #CD8A5A;
+  --cl-type-3: #7B5ACD;
+  --cl-type-4: #CDBB5A;
+  --cl-type-5: #C45ACD;
+  --cl-type-1: #5A9DCD;
   --cl-b: #{HexToRGB(#000000)}; // rgba(var(--cl-b),1.0);
   --cl-w: #{HexToRGB(#ffffff)}; // rgba(var(--cl-c),1.0);
   --cl-2: #{HexToRGB(#52514C)}; // rgba(var(--cl-d),1.0);
