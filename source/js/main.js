@@ -12,6 +12,73 @@ const body = document.body;
 const cards = document.querySelectorAll('.card');
 const shapes = document.querySelectorAll('.figures__item');
 const missionBlock = document.querySelector('.mission')
+const modal = document.querySelector('.modal');
+const modalTriggers = document.querySelectorAll('.modal-trigger');
+const modalAccept = document.querySelector('.form-send');
+const modalMain = document.querySelector('.modal-content');
+const modalHidden = document.querySelector('.modal-result')
+const closeModalButtons = document.querySelectorAll('.close-trigger');
+const modalToggles = document.querySelectorAll('.modal-row__toggle');
+
+const showModal = (modal) => {
+  modal.classList.add('modal--active');
+  body.classList.add('body-locked');
+  document.documentElement.style.overflow = 'hidden'
+  menu.classList.remove('navbar--active');
+  body.classList.remove('body-locked');
+  headerBlock.classList.remove('header-dynamic--menu')
+  document.documentElement.style.overflow = ''
+  burger.classList.remove('header-burger--active')
+}
+
+const hideModal = (modal) => {
+  modal.classList.remove('modal--active');
+  body.classList.remove('body-locked');
+  document.documentElement.style.overflow = '';
+}
+
+if (modal) {
+  modalToggles.forEach(toggle => {
+    toggle.addEventListener('click', () => {
+      toggle.classList.toggle('modal-row__toggle--active')
+    })
+  })
+  closeModalButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      hideModal(modal);
+      modalHidden.classList.remove('modal-fade-in')
+      modalMain.classList.remove('modal-fade-out')
+    })
+  })
+  modalAccept.addEventListener('click', (e) => {
+    e.preventDefault();
+    modalMain.classList.add('modal-fade-out');
+    setTimeout(() => {
+      modalHidden.classList.add('modal-fade-in')
+    }, 500)
+  })
+  modalTriggers.forEach(trigger => {
+    trigger.addEventListener('click', () => {
+      showModal(modal);
+      closeModalByOuterClick(modal)
+    })
+  })
+}
+
+const closeModalByOuterClick = (modal) => {
+  const modalContainer = modal.querySelector('.modal-container');
+
+  modalContainer.addEventListener('click', (e) => {
+    if (e.target === modalContainer) {
+      hideModal(modal);
+      modal.classList.remove('modal--active');
+      body.classList.remove('body-locked');
+      document.documentElement.style.overflow = '';
+      modalHidden.classList.remove('modal-fade-in')
+      modalMain.classList.remove('modal-fade-out')
+    }
+  })
+}
 
 if (window.innerWidth < 1239) {
   cards.forEach(card => {
@@ -171,7 +238,7 @@ function scrollEvents() {
       }
     })
   }, {
-    threshold: 0.15
+    threshold: 0.4
   })
 
   sections.forEach(section => {

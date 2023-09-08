@@ -19,6 +19,9 @@
   --collapse-btn-ratio: 30px;
   --shape-ratio: 90px;
   --logo-w: 46px;
+  --root-modal-px: 80px;
+  --root-modal-py: 80px;
+  --bg-fail-tooltip: #{HexToRGB(#FEE)};
 
 // --------------- default JS variable ---------------
   --header-height: 62px;
@@ -73,6 +76,7 @@
   --cl-w: #{HexToRGB(#ffffff)}; // rgba(var(--cl-c),1.0);
   --cl-2: #{HexToRGB(#52514C)}; // rgba(var(--cl-d),1.0);
   --cl-2_hint: #{HexToRGB(#1E6FF6)}; // rgba(var(--cl-e),1.0);
+  --cl-fail: #{HexToRGB(#DA4848)};
 
 
 // --------------- default background cl variable ---------------
@@ -96,4 +100,11 @@
 --bm-a: #{HexToRGB(#253A75)}; // rgba(var(--bm-a),1.0);
 --bm-b: #{HexToRGB(#6966f600)}; // rgba(var(--bm-b),1.0);
 --bm-c: #{HexToRGB(#08142800)}; // rgba(var(--bm-c),1.0);
+}
+
+@media only screen and (max-width: 900px) {
+  :root {
+    --root-modal-px: 20px;
+    --root-modal-py: 30px;
+  }
 }
