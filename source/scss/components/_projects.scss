@@ -9,8 +9,6 @@
   &-more {
     @include dfc;
 
-    display: none;
-
     padding: var(--root-orange-btn-py) var(--root-orange-btn-px);
 
     background-color: rgba(var(--cl-main), 1);
@@ -40,6 +38,8 @@
     'light light red red'
     'light light banana banana';
     grid-gap: var(--gallery-grid-gap);
+
+    margin-bottom: 20px;
 
     &__list {
       display: flex;
@@ -203,14 +203,10 @@
 
 @include small-tablet {
   .projects {
-    &-more {
-      display: flex;
-    }
     &-grid {
       display: flex;
       flex-direction: column;
 
-      margin-bottom: 20px;
 
       &__item {
         &:not(.projects-grid__item--visible) {
