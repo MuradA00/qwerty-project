@@ -20,6 +20,16 @@
   &:not(:last-child) {
     margin-bottom: 10px;
   }
+  &:first-child {
+    .card-grid__inner {
+      max-height: 100%;
+    }
+  }
+  @include hover {
+    .card-grid__overlay {
+      transform: translateX(0);
+    }
+  }
   &-order {
     color: rgba(var(--cl-main), 1);
     font-size: 84px;
@@ -173,12 +183,6 @@
 
       width: 100%;
       max-width: var(--btn-max-w);
-
-      @include hover {
-        .card-grid__overlay {
-          transform: translateX(0);
-        }
-      }
 
       &-price {
         color: rgba(var(--cl-b), 1);

@@ -27,7 +27,6 @@ const showModal = (modal) => {
   menu.classList.remove('navbar--active');
   body.classList.remove('body-locked');
   headerBlock.classList.remove('header-dynamic--menu')
-  document.documentElement.style.overflow = ''
   burger.classList.remove('header-burger--active')
 }
 
@@ -35,6 +34,7 @@ const hideModal = (modal) => {
   modal.classList.remove('modal--active');
   body.classList.remove('body-locked');
   document.documentElement.style.overflow = '';
+  modalToggles.forEach(toggle => toggle.classList.remove('modal-row__toggle--active'));
 }
 
 if (modal) {
@@ -59,6 +59,11 @@ if (modal) {
   })
   modalTriggers.forEach(trigger => {
     trigger.addEventListener('click', () => {
+      if (trigger.hasAttribute('data-order')) {
+        const currentOrder = trigger.getAttribute('data-order');
+        const modalOrder = document.querySelector(`.modal-row__toggle[data-order='${currentOrder}']`);
+        modalOrder.classList.add('modal-row__toggle--active')
+      }
       showModal(modal);
       closeModalByOuterClick(modal)
     })
@@ -81,6 +86,7 @@ const closeModalByOuterClick = (modal) => {
 }
 
 if (window.innerWidth < 1239) {
+  cards[0].classList.add('card--active')
   cards.forEach(card => {
     const currentContent = card.querySelector('.card-grid__inner');
     const cardButton = card.querySelector('.card-collapse');
@@ -104,7 +110,6 @@ let lastScrollY = window.scrollX;
 
 window.addEventListener("scroll", function () {
     const currentScrollY = window.pageYOffset;
-    // ? headerBlock.classList.add('header-dynamic--sticky') : headerBlock.classList.remove('header-dynamic--sticky');
 
     if (lastScrollY > currentScrollY && window.pageYOffset > (headerBlock.offsetTop + headerBlock.clientHeight / 2)) {
       headerBlock.classList.add('header-dynamic--active', 'header-dynamic--sticky');
@@ -198,6 +203,16 @@ const shapeObserver = new IntersectionObserver((entries, observer) => {
 if (window.innerWidth < 767) {
   shapeObserver.observe(missionBlock);
 }
+
+// const missionSectionObserver = new IntersectionObserver(entries => {
+//   entries.forEach(entry => {
+//     entry.isIntersecting ? menu.classList.add('navbar--black') : menu.classList.remove('navbar--black');
+//   })
+// }, {
+//   threshold: .75
+// })
+
+// missionSectionObserver.observe(document.querySelector('.mission'))
 
 const headerObserver = new IntersectionObserver(entries => {
   entries.forEach(entry => {

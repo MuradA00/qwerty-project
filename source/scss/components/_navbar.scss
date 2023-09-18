@@ -3,7 +3,15 @@
 
   z-index: 10;
 
-  mix-blend-mode:difference;
+  mix-blend-mode: difference;
+
+  &--black {
+    mix-blend-mode: normal;
+    .navbar-list__link {
+      color: rgba(var(--cl-b), 1);
+      font-weight: 500;
+    }
+  }
 
   @include laptop {
     position: fixed;
@@ -29,7 +37,7 @@
 
     max-width: var(--container-width);
 
-    top: 50%;
+    top: 45%;
 
     transform: translateY(-50%);
 

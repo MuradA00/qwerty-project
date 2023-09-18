@@ -175,3 +175,21 @@
     }
   }
 }
+
+@include small-tablet {
+  .form {
+    &-fields {
+      &__item {
+        textarea {
+          min-height: 49px;
+          padding-top: 10px;
+          font-size: var(--t-base);
+        }
+      }
+      &__input {
+        padding: 1rem calc(20px + var(--form-icon-ratio) + 20px) 1rem 1.125rem;
+        font-size: var(--t-base);
+      }
+    }
+  }
+}

@@ -1,5 +1,17 @@
 .mission {
-  background-color: rgba(var(--bg-3), 1);
+  position: relative;
+  background-color: #fff;
+  &::before {
+    @include pseudo;
+
+    width: 100%;
+    height: 100%;
+
+    left: 0;
+    top: 0;
+
+    background-color: rgba(var(--bg-3), 1);
+  }
   &__body {
     overflow: hidden;
   }
@@ -103,6 +115,10 @@
   .mission {
     &__head {
       animation: none;
+
+      & > span {
+        white-space: wrap;
+      }
     }
   }
   .figures {

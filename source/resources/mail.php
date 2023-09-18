@@ -9,7 +9,7 @@ $file = $_FILES['file'];
 
 $c = true;
 // Формирование самого письма
-$title = "Заявка с Rahmet";
+$title = "Заявка с QWERTY Agency";
 foreach ( $_POST as $key => $value ) {
   if ( $value != "" && $key != "project_name" && $key != "admin_email" && $key != "form_subject" ) {
     $body .= "
@@ -33,15 +33,15 @@ try {
 
   // Настройки вашей почты
   $mail->Host       = 'smtp.gmail.com'; // SMTP сервера вашей почты
-  $mail->Username   = 'natc999@gmail.com'; // Логин на почте
+  $mail->Username   = 'hello@qwerty.agency '; // Логин на почте
   $mail->Password   = 'sziyojmzsesunbjb'; // Пароль на почте
   $mail->SMTPSecure = 'ssl';
   $mail->Port       = 465;
 
-  $mail->setFrom('natc999@gmail.com', 'Rahmet'); // Адрес самой почты и имя отправителя
+  $mail->setFrom('hello@qwerty.agency ', 'QWERTY - Agency'); // Адрес самой почты и имя отправителя
 
   // Получатель письма
-  $mail->addAddress('natc999@gmail.com');
+  $mail->addAddress('hello@qwerty.agency ');
 
   // Прикрипление файлов к письму
   // if (!empty($file['name'][0])) {
@@ -65,5 +65,5 @@ try {
   $mail->send();
 
 } catch (Exception $e) {
-  $status = "Сообщение не было отправлено. Причина ошибки: {$mail->ErrorInfo}";
+  $status = "Произошла ошибка с отправкой письма на почту. Причина ошибки: {$mail->ErrorInfo}";
 }

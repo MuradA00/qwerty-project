@@ -115,6 +115,10 @@
   }
   &-arrow {
     grid-area: arrow;
+
+    img {
+      max-width: 150px;
+    }
   }
   &-grid {
     display: grid;
