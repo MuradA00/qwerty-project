@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="En-en">
+@include('partials/head.html')
+
+<header class="header header--single">
+  <div class="header-container container">
+    <div class="header-row col-10">
+      <a href="/" class="header-logo">
+        <div class="header-logo__icon">
+          <img src="../img/header/header-logo.svg" alt="header-logo">
+        </div>
+        <div class="header-logo__hidden">
+          <img src="../img/header/logo-hidden.svg" alt="hidden-info">
+        </div>
+      </a>
+      <div class="header-row__col">
+        <button class="header-btn button modal-trigger">
+          <span class="button-text">
+            leave request
+          </span>
+        </button>
+        <button class="header-lang">
+          <div class="header-lang__selected">
+            eng
+          </div>
+          <div class="header-lang__hidden">
+            <ul class="header-lang__list">
+              <li class="header-lang__item">
+                UA
+              </li>
+              <li class="header-lang__item">
+                UA
+              </li>
+            </ul>
+          </div>
+        </button>
+      </div>
+      <button class="header-burger">
+        <span class="header-burger__bar"></span>
+        <span class="header-burger__bar"></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<body class="body-white">
+  @include('partials/components/_modal.html')
+  <div class="navbar navbar--error navbar--single">
+    <div class="navbar__container container">
+      <ul class="navbar-list">
+        <li class="navbar-list__item" data-id="1">
+          <a href="#section-1" class="navbar-list__link">projects</a>
+        </li>
+        <li class="navbar-list__item" data-id="2">
+          <a href="#section-2" class="navbar-list__link">services</a>
+        </li>
+        <li class="navbar-list__item" data-id="3">
+          <a href="#section-3" class="navbar-list__link">MISSION</a>
+        </li>
+        <li class="navbar-list__item" data-id="4">
+          <a href="#section-4" class="navbar-list__link">CONTACTS</a>
+        </li>
+      </ul>
+      <div class="navbar-options">
+        <button class="header-lang">
+          <div class="header-lang__selected">
+            eng
+          </div>
+          <div class="header-lang__hidden">
+            <ul class="header-lang__list">
+              <li class="header-lang__item">
+                UA
+              </li>
+              <li class="header-lang__item">
+                UA
+              </li>
+            </ul>
+          </div>
+        </button>
+        <button class="navbar-button header-mob-btn button modal-trigger">
+          <span class="button-text">leave request</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <section class="error">
+      <div class="error__container container">
+        <div class="error-inner col-10">
+          <h1 class="error-title def-header def-header--black">
+            page not found
+          </h1>
+          <div class="error-info">
+            <p class="single-text">
+              The page you are looking for doesn't exist or has been moved.
+            </p>
+          </div>
+          <a href="index.html" class="error-return">
+            to main page
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha512-z4OUqw38qNLpn1libAN9BsoDx6nbNFio5lA6CuTp9NlK83b89hgyCVq+N5FdBJptINztxn1Z3SaKSKUS5UP60Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="js/main.js"></script>
+
+</html>

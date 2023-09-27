@@ -1,6 +1,7 @@
 html {
   box-sizing: border-box;
   width: 100%;
+  height: 100%;
   overflow-x: hidden;
 }
 
@@ -8,7 +9,7 @@ body {
   position: relative;
   overflow-x: inherit;
   width: 100%;
-  // min-height: -webkit-fill-available;
+  min-height: -webkit-fill-available;
   margin: 0;
 
   font-weight: 400;
@@ -33,6 +34,10 @@ body {
     overflow: hidden;
     // disable scroll
   }
+}
+
+.body-white {
+  background-color: rgba(var(--bg-2), 1);
 }
 
 .body-locked {
@@ -389,4 +394,20 @@ p {
   .def-header {
     font-size: 34px;
   }
+}
+
+.color-1 {
+  color: var(--cl-type-1);
+}
+.color-2 {
+  color: var(--cl-type-2);
+}
+.color-3 {
+  color: var(--cl-type-3);
+}
+.color-4 {
+  color: var(--cl-type-4);
+}
+.color-5 {
+  color: var(--cl-type-5);
 }

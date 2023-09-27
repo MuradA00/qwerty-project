@@ -1,13 +1,39 @@
 .header {
   --burger-w: 30px;
   --burger-h: 12px;
-  --header-content-gap: 3.375rem;
+  --header-content-gap: 3rem;
 
   background-color: rgba(var(--bg-1),1);
 
   padding: clamp(20px, 1.875vw, 30px) 0 var(--root-py) 0;
 
   color: rgba(var(--cl-w), 1);
+
+  &--single {
+    background-color: rgba(var(--bg-2), 1);
+    padding: clamp(20px, 1.875vw, 30px) 0;
+
+    .header-btn {
+      border: 1px solid rgba(var(--cl-b), 1);
+      span {
+        color: rgba(var(--cl-b), 1) !important;
+      }
+      &::before {
+       background-color: rgba(var(--bg-2), 1);
+      }
+    }
+    .header-burger {
+      span {
+        background-color: rgba(var(--cl-b), 1);
+      }
+    }
+    .header-lang {
+      &__selected {
+        color: rgba(var(--cl-b),);
+      }
+    }
+  }
+
   &-divider {
     display: none;
 

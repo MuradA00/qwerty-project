@@ -174,3 +174,12 @@
     }
   }
 }
+@include mobile {
+  .contact {
+    &-arrow {
+      img {
+        max-width: 100px;
+      }
+    }
+  }
+}

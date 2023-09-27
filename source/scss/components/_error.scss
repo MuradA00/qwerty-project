@@ -1,0 +1,16 @@
+.error {
+  &-info {
+    margin-bottom: 50px;
+  }
+  &-return {
+    font-size: var(--t-md);
+    text-transform: uppercase;
+    letter-spacing: .36px;
+    font-family: var(--ff-r);
+    font-weight: 500;
+
+    @include hover {
+      text-decoration: underline;
+    }
+  }
+}

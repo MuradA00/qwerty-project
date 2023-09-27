@@ -1,0 +1,207 @@
+.single {
+  --single-banner-h: 420px;
+
+  padding-top: 60px;
+
+  &-container {margin-bottom: clamp(70px, 5.5vw, 88px);}
+  &-title {
+    margin-bottom: clamp(30px, 3.125vw, 50px);
+    line-height: 90%;
+  }
+  &-text {
+    font-size: var(--t-md);
+    font-family: var(--ff-r);
+    line-height: 140%;
+  }
+  &-about {
+    &__heading {
+      margin-bottom: 1.25rem;
+      font-size: var(--t-lg);
+      letter-spacing: .4px;
+      font-family: var(--ff-r);
+      font-weight: 600;
+    }
+  }
+  &-bottom {
+    overflow-x: scroll;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+  &-extra {
+    &__row {
+      display: flex;
+      flex-wrap: nowrap;
+      grid-gap: 10px;
+    }
+    &__item {
+      --item-w: 500px;
+
+      flex: 0 0 auto;
+      width: var(--item-w);
+      &-image {
+        height: var(--image-h);
+        width: 100%;
+        position: relative;
+
+        overflow: hidden;
+
+        @include hover {
+          img {
+            transform: scale(1.075);
+          }
+        }
+
+        img {
+          position: absolute;
+
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+
+          transition: transform 200ms ease;
+        }
+      }
+      &:nth-child(even) {
+        --image-h: 400px;
+      }
+      &:nth-child(odd) {
+        --image-h: 610px;
+      }
+    }
+  }
+  &-header {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-gap: 28px 0;
+    grid-template-areas:
+    'labels labels ... content content content content'
+    'banner banner banner banner banner banner banner';
+    align-items: flex-end;
+    margin-bottom: 10px;
+    &__labels {
+      grid-area: labels;
+
+      &-item {
+        font-size: var(--t-md);
+        font-weight: 500;
+        text-transform: uppercase;
+        font-family: var(--ff-r);
+
+        &:not(:last-child) {
+          margin-bottom: 1.25rem;
+        }
+      }
+    }
+    &__content {
+      grid-area: content;
+    }
+    &__banner {
+      position: relative;
+      width: 100%;
+      height: var(--single-banner-h);
+      grid-area: banner;
+      &-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        img {
+          display: block;
+          width: 100%;height: 100%;
+        }
+      }
+    }
+  }
+  &-content {
+    margin-bottom: clamp(40px, 3.125vw, 50px);
+  }
+  &-info {
+    &:not(:last-child) {
+      margin-bottom: 1.875rem;
+    }
+    &:nth-child(1) {
+      max-width: 800px
+    }
+    &:nth-child(2) {
+      max-width: 860px;
+    }
+    &__heading {
+      @extend .single-about__heading;
+    }
+  }
+  &-more {
+    background-color: rgba(var(--cl-main), 1);
+    padding: 1rem 1.25rem;
+    width: 100%;
+    @include dfc;
+    text-align: center;
+    &__text {
+      font-size: var(--t-md);
+      font-weight: 500;
+      font-family: var(--ff-r);
+      text-transform: uppercase;
+      letter-spacing: .36px;
+      color: rgba(var(--cl-b), 1);
+    }
+  }
+  &-grid {
+    display: grid;
+    grid-template-columns: .6fr .4fr;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+}
+
+@include tablet {
+  .single {
+    padding-top: 1.125rem;
+    &-extra {
+      &__item {
+        --item-w: 150px;
+        &:nth-child(odd) {
+          --image-h: 190px;
+        }
+        &:nth-child(even) {
+          --image-h: 120px;
+        }
+      }
+    }
+    &-grid {
+      grid-template-columns: 100%;
+      grid-gap: 1.25rem;
+      margin-bottom: 56px;
+      &__col {
+        &-image {
+          @include dfc;
+
+          &--small {
+            max-width: 400px;
+            margin: 0 auto;
+          }
+        }
+      }
+    }
+    &-header {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-areas:
+      'labels labels'
+      'banner banner'
+      'content content';
+      margin-bottom: 1.25rem;
+    }
+  }
+}
+
+.bottom-heading {
+  margin-bottom: 1.25rem;
+
+  &__title {
+    font-size: 26px;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+}

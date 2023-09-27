@@ -33,15 +33,15 @@ try {
 
   // Настройки вашей почты
   $mail->Host       = 'smtp.gmail.com'; // SMTP сервера вашей почты
-  $mail->Username   = 'hello@qwerty.agency '; // Логин на почте
-  $mail->Password   = 'sziyojmzsesunbjb'; // Пароль на почте
+  $mail->Username   = 'mailerapp643@gmail.com'; // Логин на почте
+  $mail->Password   = 'tlbbjzjkzvrlstyz';
   $mail->SMTPSecure = 'ssl';
   $mail->Port       = 465;
 
-  $mail->setFrom('hello@qwerty.agency ', 'QWERTY - Agency'); // Адрес самой почты и имя отправителя
+  $mail->setFrom('mailerapp643@gmail.com ', 'QWERTY - Agency'); // Адрес самой почты и имя отправителя
 
   // Получатель письма
-  $mail->addAddress('hello@qwerty.agency ');
+  $mail->addAddress('hello@qwerty.agency');
 
   // Прикрипление файлов к письму
   // if (!empty($file['name'][0])) {

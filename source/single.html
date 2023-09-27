@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="En-en">
+@include('partials/head.html')
+
+<header class="header header--single">
+  <div class="header-container container">
+    <div class="header-row">
+      <a href="/" class="header-logo">
+        <div class="header-logo__icon">
+          <img src="../img/header/header-logo.svg" alt="header-logo">
+        </div>
+        <div class="header-logo__hidden">
+          <img src="../img/header/logo-hidden.svg" alt="hidden-info">
+        </div>
+      </a>
+      <div class="header-row__col">
+        <button class="header-btn button modal-trigger">
+          <span class="button-text">
+            leave request
+          </span>
+        </button>
+        <button class="header-lang">
+          <div class="header-lang__selected">
+            eng
+          </div>
+          <div class="header-lang__hidden">
+            <ul class="header-lang__list">
+              <li class="header-lang__item">
+                UA
+              </li>
+              <li class="header-lang__item">
+                UA
+              </li>
+            </ul>
+          </div>
+        </button>
+      </div>
+      <button class="header-burger">
+        <span class="header-burger__bar"></span>
+        <span class="header-burger__bar"></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<body class="body-white">
+  @include('partials/components/_modal.html')
+  <div class="navbar navbar--single">
+    <div class="navbar__container container">
+      <ul class="navbar-list">
+        <li class="navbar-list__item" data-id="1">
+          <a href="#section-1" class="navbar-list__link">projects</a>
+        </li>
+        <li class="navbar-list__item" data-id="2">
+          <a href="#section-2" class="navbar-list__link">services</a>
+        </li>
+        <li class="navbar-list__item" data-id="3">
+          <a href="#section-3" class="navbar-list__link">MISSION</a>
+        </li>
+        <li class="navbar-list__item" data-id="4">
+          <a href="#section-4" class="navbar-list__link">CONTACTS</a>
+        </li>
+      </ul>
+      <div class="navbar-options">
+        <button class="header-lang">
+          <div class="header-lang__selected">
+            eng
+          </div>
+          <div class="header-lang__hidden">
+            <ul class="header-lang__list">
+              <li class="header-lang__item">
+                UA
+              </li>
+              <li class="header-lang__item">
+                UA
+              </li>
+            </ul>
+          </div>
+        </button>
+        <button class="navbar-button header-mob-btn button modal-trigger">
+          <span class="button-text">leave request</span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <main>
+    <button class="fixed-button modal-trigger">
+      <span class="fixed-button__text">get in touch</span>
+    </button>
+    <section class="single">
+      <div class="single-container container">
+        <div class="single-wrapper col-10">
+          <div class="single-inner">
+            <h1 class="single-title def-header def-header--black">
+              monograph
+            </h1>
+            <div class="single-header">
+              <div class="single-header__labels">
+                <div class="single-header__labels-item">
+                  DIGITAL & WEB
+                </div>
+                <div class="single-header__labels-item">
+                  CREATIVE & STRATEGY
+                </div>
+              </div>
+              <div class="single-header__content">
+                <div class="single-about">
+                  <div class="single-about__heading">
+                    About
+                  </div>
+                  <div class="single-about__info">
+                    <p class="single-text">
+                      Everything has a story to tell here at Monograph Freedom Square. The location and historic building capture the essence of hotel. Every detail meticulously designed creating a new style of Georgian luxury
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="single-header__banner">
+                <div class="single-header__banner-image">
+                  <img src="img/project/project-banner-image.webp" alt="banner-image">
+                </div>
+              </div>
+            </div>
+            <div class="single-grid">
+              <div class="single-grid__col">
+                <div class="single-grid__col-image single-grid__col-image--large">
+                  <img src="img/project/brochure-image.webp" alt="brochure-image">
+                </div>
+              </div>
+              <div class="single-grid__col">
+                <div class="single-grid__col-image single-grid__col-image--small">
+                  <img src="img/project/mob-screen-image.webp" alt="mob-screen">
+                </div>
+              </div>
+            </div>
+            <div class="single-content">
+              <div class="single-info">
+                <div class="single-info__heading">
+                  Mission
+                </div>
+                <div class="single-info__descr">
+                  <p class="single-text">
+                    Qwerty was commissioned to assist Monograph team with the production of an experience website dedicated to the opening of their brand new 5* the Monograph Freedom Square Boutique hotel in Tbilisi, Georgia.
+                  </p>
+                </div>
+              </div>
+              <div class="single-info">
+                <div class="single-info__heading">
+                  Mission
+                </div>
+                <div class="single-info__descr">
+                  <p class="single-text">
+                    It was our job to translate an atmosphere of greater subtlety and refinement, into a one-of-a-kind online experience. The website functions as a bespoke content hub for customers to explore everything this brand new hotel has to offer.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <button class="single-more">
+              <span class="single-more__text">
+                see more
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="bottom-heading container">
+        <div class="bottom-heading__inner col-10">
+          <div class="bottom-heading__title">
+            See also
+          </div>
+        </div>
+      </div>
+      <div class="single-bottom">
+        <div class="single-bottom__container container">
+          <div class="single-extra col-10">
+            <ul class="single-extra__row">
+              <a href="#" class="single-extra__item">
+                <div class="single-extra__item-image">
+                  <img src="img/gallery/gallery-pink-image-height.jpg" alt="extra-image">
+                </div>
+              </a>
+              <a href="#" class="single-extra__item">
+                <div class="single-extra__item-image">
+                  <img src="img/gallery/gallery-yellow-image.jpg" alt="extra-image">
+                </div>
+              </a>
+              <a href="#" class="single-extra__item">
+                <div class="single-extra__item-image">
+                  <img src="img/gallery/gallery-light-image.webp" alt="extra-image">
+                </div>
+              </a>
+              <a href="#" class="single-extra__item">
+                <div class="single-extra__item-image">
+                  <img src="img/gallery/gallery-pink-image-height.jpg" alt="extra-image">
+                </div>
+              </a>
+              <a href="#" class="single-extra__item">
+                <div class="single-extra__item-image">
+                  <img src="img/gallery/gallery-yellow-image.jpg" alt="extra-image">
+                </div>
+              </a>
+              <a href="#" class="single-extra__item">
+                <div class="single-extra__item-image">
+                  <img src="img/gallery/gallery-light-image.webp" alt="extra-image">
+                </div>
+              </a>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  @include('partials/contact.html')
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha512-z4OUqw38qNLpn1libAN9BsoDx6nbNFio5lA6CuTp9NlK83b89hgyCVq+N5FdBJptINztxn1Z3SaKSKUS5UP60Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="js/main.js"></script>
+
+</html>

@@ -10,38 +10,33 @@
           <div class="modal-filter__header">
             Choose a service
           </div>
-          <ul class="modal-row">
-            <li data-order="1" class="modal-row__toggle">
-              <span class="modal-row__toggle-text">
-                DIGITAL & WEB
-              </span>
-            </li>
-            <li data-order="2" class="modal-row__toggle">
-              <span class="modal-row__toggle-text">
-                DESIGN
-              </span>
-            </li>
-            <li data-order="3" class="modal-row__toggle">
-              <span class="modal-row__toggle-text">
-                CREATIVE & STRATEGY
-              </span>
-            </li>
-            <li data-order="4" class="modal-row__toggle">
-              <span class="modal-row__toggle-text">
-                PRODUCTION
-              </span>
-            </li>
-            <li data-order="5" class="modal-row__toggle">
-              <span class="modal-row__toggle-text">
-                smm
-              </span>
-            </li>
-          </ul>
         </div>
-        <form action="POST" class="form">
+        <form action="#" class="form">
+          <ul class="modal-row">
+            <label data-order="1" class="modal-row__toggle">
+                DIGITAL & WEB
+              <input class="input-checkbox" type="checkbox" name="DIGITAL">
+            </label>
+            <label data-order="2" class="modal-row__toggle">
+                DESIGN
+              <input class="input-checkbox" type="checkbox" name="DESIGN">
+            </label>
+            <label data-order="3" class="modal-row__toggle">
+                CREATIVE & STRATEGY
+              <input class="input-checkbox" type="checkbox" name="CREATIVE & STRATEGY">
+            </label>
+            <label data-order="4" class="modal-row__toggle">
+                PRODUCTION
+              <input class="input-checkbox" type="checkbox" name="PRODUCTION">
+            </label>
+            <label data-order="5" class="modal-row__toggle">
+                smm
+              <input class="input-checkbox" type="checkbox" name="SMM">
+            </label>
+          </ul>
           <div class="form-fields">
             <div class="form-fields__item">
-              <input type="text" placeholder="Company name" class="form-fields__input">
+              <input required type="text" name="Company Name" placeholder="Company name" class="form-fields__input input-company">
               <div class="form-warning">
                 <img src="../../img/sprite/warning-icon.svg" alt="warning-icon">
               </div>
@@ -52,7 +47,7 @@
               </div>
             </div>
             <div class="form-fields__item">
-              <textarea class="form-fields__input" placeholder="A few words about the project and approximate budgets"></textarea>
+              <textarea class="form-fields__input input-message" name="Message" placeholder="A few words about the project and approximate budgets"></textarea>
               <div class="form-warning">
                 <img src="../../img/sprite/warning-icon.svg" alt="warning-icon">
               </div>
@@ -63,7 +58,7 @@
               </div>
             </div>
             <div class="form-fields__item">
-              <input type="text" placeholder="Company name" class="form-fields__input">
+              <input type="text" placeholder="Email" required name="Email" class="form-fields__input input-mail">
               <div class="form-warning">
                 <img src="../../img/sprite/warning-icon.svg" alt="warning-icon">
               </div>
@@ -74,7 +69,7 @@
               </div>
             </div>
             <div class="form-fields__item">
-              <input type="text" placeholder="Company name" class="form-fields__input">
+              <input required type="tel" name="Телефон" placeholder="Phone" class="form-fields__input input-tel">
               <div class="form-warning">
                 <img src="../../img/sprite/warning-icon.svg" alt="warning-icon">
               </div>
@@ -85,7 +80,7 @@
               </div>
             </div>
             <div class="form-fields__item">
-              <input type="text" placeholder="Company name" class="form-fields__input">
+              <input required type="text" name="Имя" placeholder="Name" class="form-fields__input input-user">
               <div class="form-warning">
                 <img src="../../img/sprite/warning-icon.svg" alt="warning-icon">
               </div>

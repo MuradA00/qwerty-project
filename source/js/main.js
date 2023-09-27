@@ -1,6 +1,7 @@
 import './_vendor';
-// import './_functions';
-// import './_components';
+import './functions/validate-forms'
+import './functions/validate'
+import './components/inputMask'
 
 const fixedButton = document.querySelector('.fixed-button');
 const headerBlock = document.querySelector('.header-dynamic');
@@ -37,10 +38,23 @@ const hideModal = (modal) => {
   modalToggles.forEach(toggle => toggle.classList.remove('modal-row__toggle--active'));
 }
 
+export const submitHandler = () => {
+  modalMain.classList.add('modal-fade-out');
+  setTimeout(() => {
+    modalHidden.classList.add('modal-fade-in')
+  }, 500)
+}
+
 if (modal) {
   modalToggles.forEach(toggle => {
+    const currentCheckbox = toggle.querySelector('.input-checkbox');
     toggle.addEventListener('click', () => {
       toggle.classList.toggle('modal-row__toggle--active')
+      if (toggle.classList.contains('modal-row__toggle--active')) {
+        currentCheckbox.checked = true;
+      } else {
+        currentCheckbox.checked = false;
+      }
     })
   })
   closeModalButtons.forEach(button => {
@@ -50,24 +64,19 @@ if (modal) {
       modalMain.classList.remove('modal-fade-out')
     })
   })
-  modalAccept.addEventListener('click', (e) => {
-    e.preventDefault();
-    modalMain.classList.add('modal-fade-out');
-    setTimeout(() => {
-      modalHidden.classList.add('modal-fade-in')
-    }, 500)
-  })
   modalTriggers.forEach(trigger => {
     trigger.addEventListener('click', () => {
       if (trigger.hasAttribute('data-order')) {
         const currentOrder = trigger.getAttribute('data-order');
         const modalOrder = document.querySelector(`.modal-row__toggle[data-order='${currentOrder}']`);
-        modalOrder.classList.add('modal-row__toggle--active')
+        modalOrder.classList.add('modal-row__toggle--active');
+        const currentCheckbox = modalOrder.querySelector('input[type="checkbox"]');
+        currentCheckbox.checked = true; // Устанавливаем checked для соответствующего чекбокса
       }
       showModal(modal);
-      closeModalByOuterClick(modal)
-    })
-  })
+      closeModalByOuterClick(modal);
+    });
+  });
 }
 
 const closeModalByOuterClick = (modal) => {
@@ -86,72 +95,144 @@ const closeModalByOuterClick = (modal) => {
 }
 
 if (window.innerWidth < 1239) {
-  cards[0].classList.add('card--active')
-  cards.forEach(card => {
-    const currentContent = card.querySelector('.card-grid__inner');
-    const cardButton = card.querySelector('.card-collapse');
+  if (cards.length > 0) {
+    cards[0].classList.add('card--active')
+    cards.forEach(card => {
+      const currentContent = card.querySelector('.card-grid__inner');
+      const cardButton = card.querySelector('.card-collapse');
 
-    cardButton.addEventListener('click', function() {
-      card.classList.toggle('card--active');
+      cardButton.addEventListener('click', function() {
+        card.classList.toggle('card--active');
 
-      console.log(currentContent.scrollHeight)
+        console.log(currentContent.scrollHeight)
 
-      if (card.classList.contains('card--active')) {
-        currentContent.style.maxHeight = currentContent.scrollHeight + 'px';
-      }
-      else {
-        currentContent.style.maxHeight = 0;
-      }
+        if (card.classList.contains('card--active')) {
+          currentContent.style.maxHeight = currentContent.scrollHeight + 'px';
+        }
+        else {
+          currentContent.style.maxHeight = 0;
+        }
+      })
     })
-  })
-}
-
-let lastScrollY = window.scrollX;
-
-window.addEventListener("scroll", function () {
-    const currentScrollY = window.pageYOffset;
-
-    if (lastScrollY > currentScrollY && window.pageYOffset > (headerBlock.offsetTop + headerBlock.clientHeight / 2)) {
-      headerBlock.classList.add('header-dynamic--active', 'header-dynamic--sticky');
-    }
-    else {
-      headerBlock.classList.remove('header-dynamic--active', 'header-dynamic--sticky');
-    }
-    lastScrollY = currentScrollY;
-});
-
-const words = ["WEBSITES", "APPS", "DESIGN", "MARKETING", "STRATEGY"];
-const outputElement = document.querySelector('.header-output');
-let currentWordIndex = 0;
-let letterIndex = 0;
-
-function typeNextLetter() {
-  const currentWord = words[currentWordIndex];
-  if (letterIndex < currentWord.length) {
-    const letter = currentWord[letterIndex];
-    const letterSpan = document.createElement("span");
-    letterSpan.textContent = letter;
-    letterSpan.style.color = `var(--cl-type-${currentWordIndex + 1})`;
-
-    outputElement.appendChild(letterSpan);
-
-    letterSpan.getBoundingClientRect();
-
-    letterIndex++;
-    setTimeout(typeNextLetter, 100);
-  } else {
-    setTimeout(clearWord, 1000);
   }
 }
 
-function clearWord() {
-  outputElement.textContent = "";
-  letterIndex = 0;
-  currentWordIndex = (currentWordIndex + 1) % words.length;
-  typeNextLetter();
+// let lastScrollY = window.scrollX;
+
+// window.addEventListener("scroll", function () {
+//     const currentScrollY = window.pageYOffset;
+
+//     if (lastScrollY > currentScrollY && window.pageYOffset > (headerBlock.offsetTop + headerBlock.clientHeight / 2)) {
+//       headerBlock.classList.add('header-dynamic--active', 'header-dynamic--sticky');
+//     }
+//     else {
+//       headerBlock.classList.remove('header-dynamic--active', 'header-dynamic--sticky');
+//     }
+//     lastScrollY = currentScrollY;
+// });
+
+
+function Messenger(el) {
+  'use strict';
+  var m = this;
+
+  m.init = function() {
+    m.codeletters = "&#*+%?£@§$";
+    m.message = 0;
+    m.current_length = 0;
+    m.fadeBuffer = false;
+    m.messages = [
+      'WEBSITES',
+      'APPS',
+      'DESIGN',
+      'MARKETING',
+      'STRATEGY'
+    ];
+
+    setTimeout(m.animateIn, 50); // Уменьшили задержку до 50 миллисекунд
+  };
+
+  m.generateRandomString = function(length) {
+    var random_text = '';
+    while (random_text.length < length) {
+      random_text += m.codeletters.charAt(Math.floor(Math.random() * m.codeletters.length));
+    }
+
+    return random_text;
+  };
+
+  m.animateIn = function() {
+    if (m.current_length < m.messages[m.message].length) {
+      m.current_length = m.current_length + 2;
+      if (m.current_length > m.messages[m.message].length) {
+        m.current_length = m.messages[m.message].length;
+      }
+
+      var message = m.generateRandomString(m.current_length);
+      el.innerHTML = message;
+
+      // Добавляем класс цвета для текущего слова
+      el.className = `message color-${m.message + 1}`;
+
+      setTimeout(m.animateIn, 15); // Уменьшили задержку до 10 миллисекунд
+    } else {
+      setTimeout(m.animateFadeBuffer, 15); // Уменьшили задержку до 10 миллисекунд
+    }
+  };
+
+  m.animateFadeBuffer = function() {
+    if (m.fadeBuffer === false) {
+      m.fadeBuffer = [];
+      for (var i = 0; i < m.messages[m.message].length; i++) {
+        m.fadeBuffer.push({ c: (Math.floor(Math.random() * 12)) + 1, l: m.messages[m.message].charAt(i) });
+      }
+    }
+
+    var do_cycles = false;
+    var message = '';
+
+    for (var i = 0; i < m.fadeBuffer.length; i++) {
+      var fader = m.fadeBuffer[i];
+      if (fader.c > 0) {
+        do_cycles = true;
+        fader.c--;
+        message += m.codeletters.charAt(Math.floor(Math.random() * m.codeletters.length));
+      } else {
+        message += fader.l;
+      }
+    }
+
+    el.innerHTML = message;
+
+    if (do_cycles === true) {
+      setTimeout(m.animateFadeBuffer, 10); // Уменьшили задержку до 10 миллисекунд
+    } else {
+      setTimeout(m.cycleText, 2000);
+    }
+  };
+
+  m.cycleText = function() {
+    m.message = m.message + 1;
+    if (m.message >= m.messages.length) {
+      m.message = 0;
+    }
+
+    m.current_length = 0;
+    m.fadeBuffer = false;
+    el.innerHTML = '';
+
+    // Удаляем класс цвета
+    el.className = 'message';
+
+    setTimeout(m.animateIn, 200);
+  };
+
+  m.init();
 }
 
-typeNextLetter();
+console.clear();
+var messenger = new Messenger(document.querySelector('.header-output'));
+
 
 if (innerWidth < 1239) {
   const menuHandler = () => {
@@ -159,13 +240,18 @@ if (innerWidth < 1239) {
     if (burger.classList.contains('header-burger--active')) {
       menu.classList.add('navbar--active');
       body.classList.add('body-locked');
-      headerBlock.classList.add('header-dynamic--menu')
+      if (headerBlock) {
+        headerBlock.classList.add('header-dynamic--menu')
+      }
       document.documentElement.style.overflow = 'hidden'
     } else {
       menu.classList.remove('navbar--active');
       body.classList.remove('body-locked');
-      headerBlock.classList.remove('header-dynamic--menu')
       document.documentElement.style.overflow = ''
+
+      if (headerBlock) {
+        headerBlock.classList.remove('header-dynamic--menu')
+      }
     }
   }
 
@@ -200,7 +286,7 @@ const shapeObserver = new IntersectionObserver((entries, observer) => {
   threshold: .5
 })
 
-if (window.innerWidth < 767) {
+if (window.innerWidth < 767 && missionBlock) {
   shapeObserver.observe(missionBlock);
 }
 
@@ -230,10 +316,13 @@ const contactObserver = new IntersectionObserver(entries => {
   threshold: 0.5
 })
 
-contactObserver.observe(contact)
+if (contact) {
+  contactObserver.observe(contact)
+}
 
-headerObserver.observe(header);
-
+if (fixedButton) {
+  headerObserver.observe(header);
+}
 function scrollEvents() {
   const sections = document.querySelectorAll('.section');
   const sectionLinks = document.querySelectorAll('.navbar-list__link');
@@ -287,27 +376,29 @@ document.querySelectorAll('.navbar-list__link').forEach(link => {
 let prevScrollPos = window.pageYOffset;
 const hiddenImageClass = '.projects-grid__image-hidden';
 
-try {
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      const currentScrollPos = window.pageYOffset;
-        if (currentScrollPos > prevScrollPos && !entry.isIntersecting) {
-          entry.target.querySelector(hiddenImageClass).style.transform = 'translateX(0)';
-          entry.target.querySelector('.projects-grid__image-main').style.transform = 'translateX(100%)';
-        } else {
-          entry.target.querySelector(hiddenImageClass).style.transform = 'translateX(-100%)';
-          entry.target.querySelector('.projects-grid__image-main').style.transform = 'translateX(0)';
-        }
-        prevScrollPos = currentScrollPos;
-    });
-  }, {
-    threshold: 0.5
-  });
+// try {
+//   const observer = new IntersectionObserver(entries => {
+//     entries.forEach(entry => {
+//       const currentScrollPos = window.pageYOffset;
+//         if (currentScrollPos > prevScrollPos && !entry.isIntersecting) {
+//           entry.target.querySelector(hiddenImageClass).style.transform = 'translateX(0)';
+//           entry.target.querySelector('.projects-grid__image-main').style.transform = 'translateX(100%)';
+//         } else {
+//           entry.target.querySelector(hiddenImageClass).style.transform = 'translateX(-100%)';
+//           entry.target.querySelector('.projects-grid__image-main').style.transform = 'translateX(0)';
+//         }
+//         prevScrollPos = currentScrollPos;
+//     });
+//   }, {
+//     threshold: 0.5
+//   });
 
-  document.querySelectorAll('.projects-grid__item').forEach(item => {
-    observer.observe(item);
-  });
+//   document.querySelectorAll('.projects-grid__item').forEach(item => {
+//     observer.observe(item);
+//   });
 
-} catch (error) {
-  console.log(error)
-}
+// } catch (error) {
+//   console.log(error)
+// }
+
+
