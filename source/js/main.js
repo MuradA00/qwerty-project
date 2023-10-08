@@ -117,9 +117,31 @@ if (window.innerWidth < 1239) {
   }
 }
 
+const fixedElement = document.querySelector('.navbar-list');
+
+function checkIntersection() {
+  const fixedRect = fixedElement.getBoundingClientRect();
+  const bottomRect = missionBlock.getBoundingClientRect();
+
+  // Вычисляем центральную точку fixedElement
+  const fixedCenterY = fixedRect.top + fixedRect.height / 2.5;
+
+  const isHalfIntersecting = fixedCenterY >= bottomRect.top && fixedCenterY <= bottomRect.bottom;
+
+  // Добавляем/удаляем класс в зависимости от половинного пересечения
+  if (isHalfIntersecting) {
+    fixedElement.classList.add('navbar-list--active');
+    menu.style.mixBlendMode = 'initial'
+  } else {
+    fixedElement.classList.remove('navbar-list--active');
+    menu.style.mixBlendMode = 'difference'
+  }
+}
+
 let lastScrollY = window.scrollY
 
 window.addEventListener("scroll", function () {
+  checkIntersection();
   const currentScrollY = window.scrollY;
 
   if (lastScrollY > currentScrollY) {
@@ -131,6 +153,7 @@ window.addEventListener("scroll", function () {
   lastScrollY = currentScrollY;
 });
 
+window.addEventListener('DOMContentLoaded', checkIntersection);
 
 function Messenger(el) {
   'use strict';
