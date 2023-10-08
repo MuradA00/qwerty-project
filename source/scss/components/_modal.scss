@@ -240,7 +240,16 @@
 
   cursor: pointer;
 }
+@media (max-width: 1540px) {
+  .modal {
+    --root-modal-py: 40px;
+    --root-modal-px: 40px;
 
+    &-body {
+      max-width: 800px;
+    }
+  }
+}
 @include tablet {
   .modal {
     &-close {
@@ -254,6 +263,17 @@
           transform: translateY(-50%) rotate(-45deg);
         }
       }
+    }
+  }
+}
+@include mobile {
+  .modal {
+    --root-modal-py: 30px;
+    --root-modal-px: 20px;
+
+    &-close {
+      width: 30px;
+      height: 20px;
     }
   }
 }

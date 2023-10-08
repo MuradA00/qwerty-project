@@ -49,7 +49,7 @@
     overflow: hidden;
 
     position: relative;
-
+    color: rgba(var(--cl-main), 1);
     &::after {
       @include pseudo;
 
@@ -124,25 +124,20 @@
 
     z-index: 5;
 
-    &--sticky {
+    &--active {
+      padding: .5rem 0;
+
       position: fixed;
 
-      opacity: 0;
       pointer-events: all;
 
       width: 100%;
 
       @include hover {
         &:hover {
-          background-color: rgba(var(--bg-1), .9);
+          background-color: rgba(var(--bg-1), 1);
         }
       }
-    }
-    &--active {
-      padding: .5rem 0;
-
-      pointer-events: all;
-      opacity: 1;
     }
   }
 
@@ -322,5 +317,16 @@
     &-logo {
       --logo-w: 30px;
     }
+  }
+}
+.message,
+.header-output {
+  color: rgba(var(--cl-main), 1);
+  @include small-tablet {
+    display: block;
+    min-height: 74px;
+  }
+  @include mobile {
+    min-height: 50px;
   }
 }

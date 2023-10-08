@@ -117,19 +117,19 @@ if (window.innerWidth < 1239) {
   }
 }
 
-// let lastScrollY = window.scrollX;
+let lastScrollY = window.scrollY
 
-// window.addEventListener("scroll", function () {
-//     const currentScrollY = window.pageYOffset;
+window.addEventListener("scroll", function () {
+  const currentScrollY = window.scrollY;
 
-//     if (lastScrollY > currentScrollY && window.pageYOffset > (headerBlock.offsetTop + headerBlock.clientHeight / 2)) {
-//       headerBlock.classList.add('header-dynamic--active', 'header-dynamic--sticky');
-//     }
-//     else {
-//       headerBlock.classList.remove('header-dynamic--active', 'header-dynamic--sticky');
-//     }
-//     lastScrollY = currentScrollY;
-// });
+  if (lastScrollY > currentScrollY) {
+    headerBlock.classList.add('header-dynamic--active');
+  } else if (lastScrollY <= currentScrollY) {
+    headerBlock.classList.remove('header-dynamic--active');
+  }
+
+  lastScrollY = currentScrollY;
+});
 
 
 function Messenger(el) {
@@ -167,14 +167,10 @@ function Messenger(el) {
       if (m.current_length > m.messages[m.message].length) {
         m.current_length = m.messages[m.message].length;
       }
-
       var message = m.generateRandomString(m.current_length);
       el.innerHTML = message;
 
-      // Добавляем класс цвета для текущего слова
-      el.className = `message color-${m.message + 1}`;
-
-      setTimeout(m.animateIn, 15); // Уменьшили задержку до 10 миллисекунд
+      setTimeout(m.animateIn, 25); // Уменьшили задержку до 10 миллисекунд
     } else {
       setTimeout(m.animateFadeBuffer, 15); // Уменьшили задержку до 10 миллисекунд
     }
@@ -376,29 +372,29 @@ document.querySelectorAll('.navbar-list__link').forEach(link => {
 let prevScrollPos = window.pageYOffset;
 const hiddenImageClass = '.projects-grid__image-hidden';
 
-// try {
-//   const observer = new IntersectionObserver(entries => {
-//     entries.forEach(entry => {
-//       const currentScrollPos = window.pageYOffset;
-//         if (currentScrollPos > prevScrollPos && !entry.isIntersecting) {
-//           entry.target.querySelector(hiddenImageClass).style.transform = 'translateX(0)';
-//           entry.target.querySelector('.projects-grid__image-main').style.transform = 'translateX(100%)';
-//         } else {
-//           entry.target.querySelector(hiddenImageClass).style.transform = 'translateX(-100%)';
-//           entry.target.querySelector('.projects-grid__image-main').style.transform = 'translateX(0)';
-//         }
-//         prevScrollPos = currentScrollPos;
-//     });
-//   }, {
-//     threshold: 0.5
-//   });
+try {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      const currentScrollPos = window.pageYOffset;
+        if (currentScrollPos > prevScrollPos && !entry.isIntersecting) {
+          entry.target.querySelector(hiddenImageClass).style.transform = 'translateX(0)';
+          entry.target.querySelector('.projects-grid__image-main').style.transform = 'translateX(100%)';
+        } else {
+          entry.target.querySelector(hiddenImageClass).style.transform = 'translateX(-100%)';
+          entry.target.querySelector('.projects-grid__image-main').style.transform = 'translateX(0)';
+        }
+        prevScrollPos = currentScrollPos;
+    });
+  }, {
+    threshold: 0.5
+  });
 
-//   document.querySelectorAll('.projects-grid__item').forEach(item => {
-//     observer.observe(item);
-//   });
+  document.querySelectorAll('.projects-grid__item').forEach(item => {
+    observer.observe(item);
+  });
 
-// } catch (error) {
-//   console.log(error)
-// }
+} catch (error) {
+  console.log(error)
+}
 
 

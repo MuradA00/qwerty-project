@@ -21,9 +21,9 @@ export const validateForms = (selector, rules, afterSend) => {
 
   // if (telSelector) {
   //   const inputMask = new Inputmask({
-  //   mask: '+38 (999) 999 99 99',
-  //   placeholder: '_'
-  // });
+  //     mask: '',
+  //     placeholder: '_'
+  //   });
   //   inputMask.mask(telSelector);
 
   //   for (let item of rules) {
@@ -32,14 +32,13 @@ export const validateForms = (selector, rules, afterSend) => {
   //         rule: 'function',
   //         validator: function() {
   //           const phone = telSelector.inputmask.unmaskedvalue();
-  //           return phone.length === 10;
+  //           return phone.length === 9; // Теперь проверка на длину без кода страны
   //         },
   //         errorMessage: item.telError
   //       });
   //     }
   //   }
   // }
-
   const validation = new JustValidate(selector, {
       errorsContainer: document.querySelector('.form-fields__item')
   });

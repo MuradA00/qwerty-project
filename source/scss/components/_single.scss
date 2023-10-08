@@ -7,6 +7,22 @@
   &-title {
     margin-bottom: clamp(30px, 3.125vw, 50px);
     line-height: 90%;
+
+    position: relative;
+    &::after {
+      @include pseudo;
+
+      height: 3px;
+      background-color: rgba(var(--cl-b), 1);
+      width: 0;
+      bottom: -4px;
+      transition: width 300ms ease;
+    }
+    @include hover {
+      &::after {
+        width: 100%;
+      }
+    }
   }
   &-text {
     font-size: var(--t-md);

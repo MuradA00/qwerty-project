@@ -83,18 +83,6 @@ const rules1 = [
   },
 ];
 
-// myInput.addEventListener('input', function () {
-//   const inputValue = myInput.value;
-//   const isValid = /^[a-zA-Z0-9]+$/.test(inputValue); // Проверяем текст на соответствие правилам
-
-//   if (isValid) {
-//     validationMessage.style.opacity = 0; // Скрываем подсказку
-//     isInputValid = true;
-//   } else {
-//     isInputValid = false;
-//   }
-// });
-
 const afterForm = () => {
   submitHandler();
 };
@@ -113,5 +101,5 @@ document.querySelector('.form-send').addEventListener('click', () => {
         currentPoint.style.opacity = 0;
       }
     });
-  }, 100); // Добавляем небольшую задержку (в миллисекундах), чтобы дать время для валидации
+  }, 100);
 });
