@@ -141,7 +141,9 @@ function checkIntersection() {
 let lastScrollY = window.scrollY
 
 window.addEventListener("scroll", function () {
-  checkIntersection();
+  if (window.innerWidth > 1239) {
+    checkIntersection();
+  }
   const currentScrollY = window.scrollY;
 
   if (lastScrollY > currentScrollY) {
