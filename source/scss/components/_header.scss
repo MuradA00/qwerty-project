@@ -322,9 +322,11 @@
 .message,
 .header-output {
   color: rgba(var(--cl-main), 1);
+  padding-left: 1rem;
   @include small-tablet {
     display: block;
     min-height: 74px;
+    padding-left: 0;
   }
   @include mobile {
     min-height: 50px;
