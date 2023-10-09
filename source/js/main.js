@@ -129,21 +129,20 @@ function checkIntersection() {
   const isHalfIntersecting = fixedCenterY >= bottomRect.top && fixedCenterY <= bottomRect.bottom;
 
   // Добавляем/удаляем класс в зависимости от половинного пересечения
-  if (isHalfIntersecting) {
+  if (window.innerWidth > 1239) {
+    if (isHalfIntersecting) {
     fixedElement.classList.add('navbar-list--active');
     menu.style.mixBlendMode = 'initial'
   } else {
     fixedElement.classList.remove('navbar-list--active');
     menu.style.mixBlendMode = 'difference'
   }
+  }
 }
 
 let lastScrollY = window.scrollY
 
 window.addEventListener("scroll", function () {
-  if (window.innerWidth > 1239) {
-    checkIntersection();
-  }
   const currentScrollY = window.scrollY;
 
   if (lastScrollY > currentScrollY) {
