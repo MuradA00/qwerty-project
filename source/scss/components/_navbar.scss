@@ -3,16 +3,6 @@
 
   z-index: 10;
 
-  mix-blend-mode: difference;
-
-  &--black {
-  mix-blend-mode: normal;
-    .navbar-list__link {
-      color: rgba(var(--cl-b), 1);
-      font-weight: 500;
-    }
-  }
-
   @include laptop {
     position: fixed;
   }
@@ -64,11 +54,15 @@
       font-weight: 400;
       letter-spacing: 0.36px;
       text-transform: uppercase;
-
       color: rgba(var(--cl-w),1);
 
       position: relative;
-
+      &--hl {
+        color: rgba(var(--cl-b), 1);
+        &::before {
+          background-color: rgba(var(--cl-b), 1) !important;
+        }
+      }
       &::before {
         @include pseudo;
 
@@ -98,6 +92,9 @@
           transform: scale(1);
           opacity: 1;
         }
+      }
+      @include laptop {
+        color: rgba(var(--cl-w), 1);
       }
     }
   }

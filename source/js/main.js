@@ -118,43 +118,48 @@ if (window.innerWidth < 1239) {
 }
 
 const fixedElement = document.querySelector('.navbar-list');
+const spans = fixedElement.querySelectorAll('.navbar-list__link');
+const whiteSections = document.querySelectorAll('.section-white');
 
-function checkIntersection() {
-  const fixedRect = fixedElement.getBoundingClientRect();
-  const bottomRect = missionBlock.getBoundingClientRect();
-
-  // Вычисляем центральную точку fixedElement
-  const fixedCenterY = fixedRect.top + fixedRect.height / 2.5;
-
-  const isHalfIntersecting = fixedCenterY >= bottomRect.top && fixedCenterY <= bottomRect.bottom;
-
-  // Добавляем/удаляем класс в зависимости от половинного пересечения
-  if (window.innerWidth > 1239) {
-    if (isHalfIntersecting) {
-    fixedElement.classList.add('navbar-list--active');
-    menu.style.mixBlendMode = 'initial'
-  } else {
-    fixedElement.classList.remove('navbar-list--active');
-    menu.style.mixBlendMode = 'difference'
-  }
-  }
+function isElementInViewport(element, container) {
+    const elementRect = element.getBoundingClientRect();
+    const containerRect = container.getBoundingClientRect();
+    return elementRect.top <= containerRect.bottom && elementRect.bottom >= containerRect.top;
 }
 
-let lastScrollY = window.scrollY
+function updateSpanClasses() {
+    spans.forEach(span => {
+        let isActive = false;
+        whiteSections.forEach(whiteSection => {
+            if (isElementInViewport(span, whiteSection)) {
+                isActive = true;
+            }
+        });
+        if (isActive) {
+            span.classList.add('navbar-list__link--hl');
+        } else {
+            span.classList.remove('navbar-list__link--hl');
+        }
+    });
+}
+
+var lastScroll = 0;
+var isScrolled = false;
 
 window.addEventListener("scroll", function () {
-  const currentScrollY = window.scrollY;
+  updateSpanClasses();
+  var currentScroll =
+    window.pageYOffset ||
+    document.documentElement.scrollTop ||
+    document.body.scrollTop ||
+    0;
+  var scrollDirection = currentScroll < lastScroll;
+  var shouldToggle = isScrolled && scrollDirection;
+  isScrolled = currentScroll > 100;
+  headerBlock.classList.toggle("header-dynamic--active", shouldToggle);
+  lastScroll = currentScroll;
 
-  if (lastScrollY > currentScrollY) {
-    headerBlock.classList.add('header-dynamic--active');
-  } else if (lastScrollY <= currentScrollY) {
-    headerBlock.classList.remove('header-dynamic--active');
-  }
-
-  lastScrollY = currentScrollY;
 });
-
-window.addEventListener('DOMContentLoaded', checkIntersection);
 
 function Messenger(el) {
   'use strict';

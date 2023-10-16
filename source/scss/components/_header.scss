@@ -124,6 +124,9 @@
 
     z-index: 5;
 
+    &--menu {
+      background-color: rgba(var(--bg-1), 1);
+    }
     &--active {
       padding: .5rem 0;
 

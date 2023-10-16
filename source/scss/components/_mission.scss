@@ -114,10 +114,10 @@
 @include laptop {
   .mission {
     &__head {
-      animation: none;
-
+      animation: none !important;
+      white-space: normal !important;
       & > span {
-        white-space: wrap;
+        white-space: normal !important;
       }
     }
   }
