@@ -47,7 +47,16 @@
       position: initial;
       transform: translateY(0);
     }
-
+    &__item {
+      &--active {
+        .navbar-list__link {
+          &::before {
+            transform: scale(1);
+            opacity: 1;
+          }
+        }
+      }
+    }
     &__link {
       font-family: var(--ff-r);
       font-size: var(--t-md);
@@ -205,6 +214,10 @@
         font-family: var(--ff-o);
         font-size: var(--t-xxl-2);
         font-weight: 500;
+
+        &::before {
+          background-color: rgba(var(--cl-w), 1) !important;
+        }
       }
     }
   }

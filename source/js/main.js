@@ -27,7 +27,9 @@ const showModal = (modal) => {
   document.documentElement.style.overflow = 'hidden'
   menu.classList.remove('navbar--active');
   body.classList.remove('body-locked');
-  headerBlock.classList.remove('header-dynamic--menu')
+  if (headerBlock) {
+    headerBlock.classList.remove('header-dynamic--menu')
+  }
   burger.classList.remove('header-burger--active')
 }
 
@@ -146,117 +148,164 @@ function updateSpanClasses() {
 var lastScroll = 0;
 var isScrolled = false;
 
+const links = document.querySelectorAll('.navbar-list__item');
+const sections = document.querySelectorAll('.section');
+function isFixedElementAtTop(link, section) {
+  const linkRect = link.getBoundingClientRect();
+  const sectionRect = section.getBoundingClientRect();
+  return linkRect.bottom >= sectionRect.top;
+}
+
+// Функция для установки активного класса для ссылок
+function setActiveLink(linkId) {
+  links.forEach((link) => {
+    link.classList.remove('navbar-list__item--active');
+  });
+
+  const activeLink = document.querySelector(`[data-id="${linkId}"]`);
+  if (activeLink) {
+    activeLink.classList.add('navbar-list__item--active');
+  }
+}
+
+
+
 window.addEventListener("scroll", function () {
+
+  if (sections.length > 0) {
+    for (let i = 0; i < links.length; i++) {
+      const link = links[i];
+      const section = sections[i];
+      const linkId = link.getAttribute('data-id');
+
+      // Проверяем, если фиксированный элемент касается верхней части секции
+      if (isFixedElementAtTop(link, section)) {
+        setActiveLink(linkId);
+      }
+    }
+
+  }
+
   updateSpanClasses();
-  var currentScroll =
-    window.pageYOffset ||
-    document.documentElement.scrollTop ||
-    document.body.scrollTop ||
-    0;
-  var scrollDirection = currentScroll < lastScroll;
-  var shouldToggle = isScrolled && scrollDirection;
-  isScrolled = currentScroll > 100;
-  headerBlock.classList.toggle("header-dynamic--active", shouldToggle);
-  lastScroll = currentScroll;
+
+  if (window.innerWidth < 1366) {
+      var currentScroll =
+      window.pageYOffset ||
+      document.documentElement.scrollTop ||
+      document.body.scrollTop ||
+      0;
+      var scrollDirection = currentScroll < lastScroll;
+      var shouldToggle = isScrolled && scrollDirection;
+      isScrolled = currentScroll > 100;
+      headerBlock.classList.toggle("header-dynamic--active", shouldToggle);
+      lastScroll = currentScroll;
+  }
 
 });
 
-function Messenger(el) {
-  'use strict';
-  var m = this;
+// window.addEventListener('load', () => {
+//   setActiveLink('1'); // Устанавливаем активный класс для первой ссылки по умолчанию
+// });
 
-  m.init = function() {
-    m.codeletters = "&#*+%?£@§$";
-    m.message = 0;
-    m.current_length = 0;
-    m.fadeBuffer = false;
-    m.messages = [
-      'WEBSITES',
-      'APPS',
-      'DESIGN',
-      'MARKETING',
-      'STRATEGY'
-    ];
 
-    setTimeout(m.animateIn, 50); // Уменьшили задержку до 50 миллисекунд
-  };
+if (document.querySelector('.header-output')) {
+  function Messenger(el) {
+    'use strict';
+    var m = this;
 
-  m.generateRandomString = function(length) {
-    var random_text = '';
-    while (random_text.length < length) {
-      random_text += m.codeletters.charAt(Math.floor(Math.random() * m.codeletters.length));
-    }
+    m.init = function() {
+      m.codeletters = "&#*+%?£@§$";
+      m.message = 0;
+      m.current_length = 0;
+      m.fadeBuffer = false;
+      m.messages = [
+        'WEBSITES',
+        'APPS',
+        'DESIGN',
+        'MARKETING',
+        'STRATEGY'
+      ];
 
-    return random_text;
-  };
+      setTimeout(m.animateIn, 50); // Уменьшили задержку до 50 миллисекунд
+    };
 
-  m.animateIn = function() {
-    if (m.current_length < m.messages[m.message].length) {
-      m.current_length = m.current_length + 2;
-      if (m.current_length > m.messages[m.message].length) {
-        m.current_length = m.messages[m.message].length;
+    m.generateRandomString = function(length) {
+      var random_text = '';
+      while (random_text.length < length) {
+        random_text += m.codeletters.charAt(Math.floor(Math.random() * m.codeletters.length));
       }
-      var message = m.generateRandomString(m.current_length);
+
+      return random_text;
+    };
+
+    m.animateIn = function() {
+      if (m.current_length < m.messages[m.message].length) {
+        m.current_length = m.current_length + 2;
+        if (m.current_length > m.messages[m.message].length) {
+          m.current_length = m.messages[m.message].length;
+        }
+        var message = m.generateRandomString(m.current_length);
+        el.innerHTML = message;
+
+        setTimeout(m.animateIn, 25); // Уменьшили задержку до 10 миллисекунд
+      } else {
+        setTimeout(m.animateFadeBuffer, 15); // Уменьшили задержку до 10 миллисекунд
+      }
+    };
+
+    m.animateFadeBuffer = function() {
+      if (m.fadeBuffer === false) {
+        m.fadeBuffer = [];
+        for (var i = 0; i < m.messages[m.message].length; i++) {
+          m.fadeBuffer.push({ c: (Math.floor(Math.random() * 12)) + 1, l: m.messages[m.message].charAt(i) });
+        }
+      }
+
+      var do_cycles = false;
+      var message = '';
+
+      for (var i = 0; i < m.fadeBuffer.length; i++) {
+        var fader = m.fadeBuffer[i];
+        if (fader.c > 0) {
+          do_cycles = true;
+          fader.c--;
+          message += m.codeletters.charAt(Math.floor(Math.random() * m.codeletters.length));
+        } else {
+          message += fader.l;
+        }
+      }
+
       el.innerHTML = message;
 
-      setTimeout(m.animateIn, 25); // Уменьшили задержку до 10 миллисекунд
-    } else {
-      setTimeout(m.animateFadeBuffer, 15); // Уменьшили задержку до 10 миллисекунд
-    }
-  };
-
-  m.animateFadeBuffer = function() {
-    if (m.fadeBuffer === false) {
-      m.fadeBuffer = [];
-      for (var i = 0; i < m.messages[m.message].length; i++) {
-        m.fadeBuffer.push({ c: (Math.floor(Math.random() * 12)) + 1, l: m.messages[m.message].charAt(i) });
-      }
-    }
-
-    var do_cycles = false;
-    var message = '';
-
-    for (var i = 0; i < m.fadeBuffer.length; i++) {
-      var fader = m.fadeBuffer[i];
-      if (fader.c > 0) {
-        do_cycles = true;
-        fader.c--;
-        message += m.codeletters.charAt(Math.floor(Math.random() * m.codeletters.length));
+      if (do_cycles === true) {
+        setTimeout(m.animateFadeBuffer, 10); // Уменьшили задержку до 10 миллисекунд
       } else {
-        message += fader.l;
+        setTimeout(m.cycleText, 2000);
       }
-    }
+    };
 
-    el.innerHTML = message;
+    m.cycleText = function() {
+      m.message = m.message + 1;
+      if (m.message >= m.messages.length) {
+        m.message = 0;
+      }
 
-    if (do_cycles === true) {
-      setTimeout(m.animateFadeBuffer, 10); // Уменьшили задержку до 10 миллисекунд
-    } else {
-      setTimeout(m.cycleText, 2000);
-    }
-  };
+      m.current_length = 0;
+      m.fadeBuffer = false;
+      el.innerHTML = '';
 
-  m.cycleText = function() {
-    m.message = m.message + 1;
-    if (m.message >= m.messages.length) {
-      m.message = 0;
-    }
+      // Удаляем класс цвета
+      el.className = 'message';
 
-    m.current_length = 0;
-    m.fadeBuffer = false;
-    el.innerHTML = '';
+      setTimeout(m.animateIn, 200);
+    };
 
-    // Удаляем класс цвета
-    el.className = 'message';
+    m.init();
+  }
 
-    setTimeout(m.animateIn, 200);
-  };
-
-  m.init();
+  console.clear();
+  var messenger = new Messenger(document.querySelector('.header-output'));
 }
-
-console.clear();
-var messenger = new Messenger(document.querySelector('.header-output'));
 
 
 if (innerWidth < 1239) {
@@ -349,31 +398,6 @@ if (fixedButton) {
   headerObserver.observe(header);
 }
 function scrollEvents() {
-  const sections = document.querySelectorAll('.section');
-  const sectionLinks = document.querySelectorAll('.navbar-list__link');
-  const menu = document.querySelector('.navbar-list');
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        sectionLinks.forEach((link) => {
-          const linkOrder = link.getAttribute('href').replace('#', '');
-          if (linkOrder == entry.target.id) {
-            link.classList.add('navbar-list__link--active')
-          } else {
-            link.classList.remove('navbar-list__link--active')
-          }
-        })
-      }
-    })
-  }, {
-    threshold: 0.4
-  })
-
-  sections.forEach(section => {
-    observer.observe(section)
-  })
-
   menu.addEventListener('click', (e) => {
     if (e.target.classList.contains('.navbar-list__link')) {
       e.preventDefault();
