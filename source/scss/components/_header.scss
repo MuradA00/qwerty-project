@@ -29,7 +29,16 @@
     }
     .header-lang {
       &__selected {
-        color: rgba(var(--cl-b),);
+        color: rgba(var(--cl-b),1);
+        &::after {
+          background-color: rgba(var(--cl-b),1);
+        }
+      }
+      a {
+        color: rgba(var(--cl-b),1);
+        &::after {
+          background-color: rgba(var(--cl-b),1);
+        }
       }
     }
   }
@@ -146,7 +155,17 @@
 
   &-lang {
     position: relative;
-
+    &:hover {
+      .header-lang__hidden {
+        opacity: 1 !important;
+        pointer-events: all !important;
+      }
+      .header-lang__selected {
+        &::after {
+          width: 100% !important;
+        }
+      }
+    }
     &__selected {
       font-size: var(--t-md);
       font-weight: 500;
@@ -154,11 +173,27 @@
       text-transform: uppercase;
       color: rgba(var(--cl-w), 1);
       letter-spacing: 0.36px;
+      transition: all 300ms ease;
+      &::after {
+        @include pseudo;
+        width: 0;
+        background-color: rgba(var(--cl-w), 1);
+        height: 2px;
+        bottom: -2px;
+        left: 0;
+        transition: all 300ms ease;
+      }
     }
 
     &__hidden {
       position: absolute;
-      display: none;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      padding-top: 1rem;
+      opacity: 0;
+      transition: all 300ms ease;
+      pointer-events: none;
     }
     &__list {
       display: flex;
@@ -166,7 +201,29 @@
       grid-gap: .5rem;
     }
     &__item {
-
+      a {
+        font-size: var(--t-md);
+        font-weight: 500;
+        font-family: var(--ff-r);
+        text-transform: uppercase;
+        color: rgba(var(--cl-w), 1);
+        letter-spacing: 0.36px;
+        position: relative;
+        &::after {
+          @include pseudo;
+          width: 0;
+          background-color: rgba(var(--cl-w), 1);
+          height: 2px;
+          bottom: -2px;
+          left: 0;
+          transition: all 300ms ease;
+        }
+        &:hover {
+          &::after {
+            width: 100%;
+          }
+        }
+      }
     }
   }
   &-row {
@@ -187,6 +244,7 @@
     transform: translateY(-1rem);
 
     grid-column: 1 / 7;
+    font-size: 51px;
   }
   &-mob-btn {
     display: none;
@@ -257,7 +315,7 @@
     }
     &-content {
       grid-template-columns: repeat(5, 1fr);
-      grid-gap: 1.875rem;
+      grid-gap: 1.875rem 0;
       grid-template-areas:
       'title title title title title'
       'info info info arrow arrow'

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="Ru-ru">
+<html lang="En-en">
 @include('partials/head.html')
 
 <header class="header header--single">
@@ -23,18 +23,18 @@
       <div class="header-row__col">
         <button class="header-btn button modal-trigger">
           <span class="button-text">
-            leave request
+            პროექტების შეკვეთა
           </span>
         </button>
         <button class="header-lang">
           <div class="header-lang__selected">
-            eng
+            ge
           </div>
           <div class="header-lang__hidden">
             <ul class="header-lang__list">
               <li class="header-lang__item">
-                <a href="index-ge.html">
-                  ge
+                <a href="index.html">
+                  eng
                 </a>
               </li>
               <li class="header-lang__item">
@@ -55,15 +55,143 @@
 </header>
 
 <body class="body-white">
-  @include('partials/components/_modal.html')
+  <div class="modal">
+    <div class="modal-container">
+      <div class="modal-body">
+        <button class="modal-close close-trigger">
+          <span class="modal-close__bar"></span>
+          <span class="modal-close__bar"></span>
+        </button>
+        <div class="modal-content">
+          <div class="modal-filter">
+            <div class="modal-filter__header">
+              სერვისის არჩევა
+            </div>
+          </div>
+          <form action="#" class="form">
+            <ul class="modal-row">
+              <label data-order="2" class="modal-row__toggle">
+                  დიზაინი
+
+                <input class="input-checkbox" type="checkbox" name="დიზაინი
+  ">
+              </label>
+              <label data-order="1" class="modal-row__toggle">
+                ციფრული და ვებ მომსახურება
+
+              <input class="input-checkbox" type="checkbox" name="DIGITAL">
+            </label>
+              <label data-order="3" class="modal-row__toggle">
+                  კრეატივი & სტრატეგია
+
+                <input class="input-checkbox" type="checkbox" name="კრეატივი და სტრატეგია
+  ">
+              </label>
+              <label data-order="4" class="modal-row__toggle">
+                  წარმოება
+                <input class="input-checkbox" type="checkbox" name="PRODUCTION">
+              </label>
+              <label data-order="5" class="modal-row__toggle">
+                  სოციალური მედიის მარკეტინგი
+
+                <input class="input-checkbox" type="checkbox" name="სოციალური მედიის მარკეტინგი
+">
+              </label>
+            </ul>
+            <div class="form-fields">
+              <div class="form-fields__item">
+                <input required type="text" name="კომპანიის სახელი
+  " placeholder="კომპანიის სახელი
+  " class="form-fields__input input-company">
+                <div class="form-warning">
+                  <img src="../../img/sprite/warning-icon.svg" alt="warning-icon">
+                </div>
+                <div class="form-point">
+                  <div class="form-tooltip">
+                    Please provide your კომპანიის სახელი
+  .
+                  </div>
+                </div>
+              </div>
+              <div class="form-fields__item">
+                <textarea class="form-fields__input input-message" name="Message" placeholder="ორიოდე სიტყვა პროექტისა და სავარაუდო ბიუჯეტის შესახებ
+  "></textarea>
+                <div class="form-warning">
+                  <img src="../../img/sprite/warning-icon.svg" alt="warning-icon">
+                </div>
+                <div class="form-point">
+                  <div class="form-tooltip">
+                    Please enter a message.
+                  </div>
+                </div>
+              </div>
+              <div class="form-fields__item">
+                <input type="text" placeholder="ელ" required name="ელ" class="form-fields__input input-mail">
+                <div class="form-warning">
+                  <img src="../../img/sprite/warning-icon.svg" alt="warning-icon">
+                </div>
+                <div class="form-point">
+                  <div class="form-tooltip">
+                    ელ
+                  </div>
+                </div>
+              </div>
+              <div class="form-fields__item">
+                <input required type="tel" name="Телефон" placeholder="ტელეფონის ნომერი
+  " class="form-fields__input input-tel">
+                <div class="form-warning">
+                  <img src="../../img/sprite/warning-icon.svg" alt="warning-icon">
+                </div>
+                <div class="form-point">
+                  <div class="form-tooltip">
+                    ტელეფონის ნომერი
+
+                  </div>
+                </div>
+              </div>
+              <div class="form-fields__item">
+                <input required type="text" name="Имя" placeholder="სახელი" class="form-fields__input input-user">
+                <div class="form-warning">
+                  <img src="../../img/sprite/warning-icon.svg" alt="warning-icon">
+                </div>
+                <div class="form-point">
+                  <div class="form-tooltip">
+                    სახელი
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button class="form-send">
+              <span class="form-send__text">გაგზავნა
+              </span>
+            </button>
+          </form>
+        </div>
+        <div class="modal-result">
+          <div class="modal-inner">
+            <div class="modal-heading">
+              <div class="modal-title">
+                Thank you!
+              </div>
+              <div class="modal-sub">We will reply during one working day.</div>
+            </div>
+            <button class="modal-return close-trigger">
+              to main page
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="navbar navbar--single">
     <div class="navbar__container container">
       <ul class="navbar-list">
         <li class="navbar-list__item" data-id="1">
-          <a href="#section-1" class="navbar-list__link">Section</a>
+          <a href="#section-1" class="navbar-list__link">განყოფილება</a>
         </li>
         <li class="navbar-list__item" data-id="2">
-          <a href="#section-2" class="navbar-list__link">Mission</a>
+          <a href="#section-2" class="navbar-list__link">მისია
+</a>
         </li>
       </ul>
       <div class="navbar-options">
@@ -102,20 +230,22 @@
             <div class="single-header">
               <div class="single-header__labels">
                 <div class="single-header__labels-item">
-                  DIGITAL & WEB
+                  ციფრული და ვებ მომსახურება
+
                 </div>
                 <div class="single-header__labels-item">
-                  CREATIVE & STRATEGY
+                  კრეატივი და სტრატეგია
+
                 </div>
               </div>
               <div class="single-header__content">
                 <div class="single-about">
                   <div class="single-about__heading">
-                    About
+                    შესახებ
                   </div>
                   <div class="single-about__info">
                     <p class="single-text">
-                      Everything has a story to tell here at Monograph Freedom Square. The location and historic building capture the essence of hotel. Every detail meticulously designed creating a new style of Georgian luxury
+                      ყველაფერს თავისი ისტორია აქვს, მონოგრაფის თავისუფლების მოედანზე. მდებარეობა და ისტორიული შენობა ასახავს სასტუმროს არსს. თითოეული დეტალი ზედმიწევნით შემუშავებულია და  ქმნის ქართული ფუფუნების ახალ სტილს
                     </p>
                   </div>
                 </div>
@@ -141,28 +271,30 @@
             <div class="single-content">
               <div class="single-info">
                 <div class="single-info__heading">
-                  Mission
+                  მისია
+
                 </div>
                 <div class="single-info__descr">
                   <p class="single-text">
-                    Qwerty was commissioned to assist Monograph team with the production of an experience website dedicated to the opening of their brand new 5* the Monograph Freedom Square Boutique hotel in Tbilisi, Georgia.
+                    Qwerty-ს დაევალა დაეხმაროს Monograph-ის გუნდს ვებგვერდის წარმოებაში, რომელიც ეძღვნებოდა მათი ახალი 5* სასტუმროს Monograph Freedom Square Boutique-ის გახსნას თბილისში, საქართველო.
                   </p>
                 </div>
               </div>
               <div class="single-info">
                 <div class="single-info__heading">
-                  Mission
+                  მისია
+
                 </div>
                 <div class="single-info__descr">
                   <p class="single-text">
-                    It was our job to translate an atmosphere of greater subtlety and refinement, into a one-of-a-kind online experience. The website functions as a bespoke content hub for customers to explore everything this brand new hotel has to offer.
+                    ჩვენი ამოცანა იყო უფრო მეტი დახვეწილობისა და დახვეწის ატმოსფერო გარდაგვექმნა ერთგვარ ონლაინ გამოცდილებად. ვებსაიტი ფუნქციონირებს, როგორც შეკვეთილი კონტენტის კერა მომხმარებლებისთვის, რათა შეისწავლონ ყველაფერი, რასაც სრულიად ახალი სასტუმრო სთავაზობს.
                   </p>
                 </div>
               </div>
             </div>
             <a href="https://www.behance.net/gallery/98232971/Monograph-Freedom-Square" target="_blank" class="single-more">
               <span class="single-more__text">
-                see more
+                მეტის ნახვა
               </span>
             </a>
           </div>
@@ -171,7 +303,7 @@
       <div class="bottom-heading container">
         <div class="bottom-heading__inner col-10">
           <div class="bottom-heading__title">
-            See also
+            ასევე იხილეთ
           </div>
         </div>
       </div>
@@ -220,7 +352,8 @@
     <div class="contact__container container">
       <div class="contact-grid col-10">
         <h3 class="contact-title def-header">
-          let’s roll with the best DIGITAL AGENCY IN GEORGIA.
+          შემოუერთდით საუკეთესო ციფრულ სააგენტოს საქართველოში.
+
         </h3>
         <div class="contact-arrow">
           <img src="../img/header/arrow.webp" alt="arrow-icon">
@@ -254,7 +387,7 @@
         <div class="button-container">
           <button class="contact-button button modal-trigger">
             <span class="button-text">
-              leave request
+              პროექტების შეკვეთა
             </span>
           </button>
         </div>

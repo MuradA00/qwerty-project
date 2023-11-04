@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="Ru-ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="Description" content="default">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Qwerty</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+
+<body>
+  <div class="modal">
+  <div class="modal-container">
+    <div class="modal-body">
+      <button class="modal-close close-trigger">
+        <span class="modal-close__bar"></span>
+        <span class="modal-close__bar"></span>
+      </button>
+      <div class="modal-content">
+        <div class="modal-filter">
+          <div class="modal-filter__header">
+            Какие задачи перед нами стоят?
+          </div>
+        </div>
+        <form action="#" class="form">
+          <ul class="modal-row">
+            <label data-order="2" class="modal-row__toggle">
+                Дизайн
+
+              <input class="input-checkbox" type="checkbox" name="Дизайн
+">
+            </label>
+            <label data-order="1" class="modal-row__toggle">
+              DIGITAL & WEB
+            <input class="input-checkbox" type="checkbox" name="DIGITAL">
+          </label>
+            <label data-order="3" class="modal-row__toggle">
+                КРЕАТИВ & СТРАТЕГИЯ
+              <input class="input-checkbox" type="checkbox" name="CREATIVE & STRATEGY">
+            </label>
+            <label data-order="4" class="modal-row__toggle">
+                Продюсирование
+
+              <input class="input-checkbox" type="checkbox" name="Продюсирование
+">
+            </label>
+            <label data-order="5" class="modal-row__toggle">
+                smm
+              <input class="input-checkbox" type="checkbox" name="SMM">
+            </label>
+          </ul>
+          <div class="form-fields">
+            <div class="form-fields__item">
+              <input required type="text" name="Компания" placeholder="Компания" class="form-fields__input input-company">
+              <div class="form-warning">
+                <img src="../../img/sprite/warning-icon.svg" alt="warning-icon">
+              </div>
+              <div class="form-point">
+                <div class="form-tooltip">
+                  Название компании
+                </div>
+              </div>
+            </div>
+            <div class="form-fields__item">
+              <textarea class="form-fields__input input-message" name="Message" placeholder="Несколько слов о проекте и бюджете
+              "></textarea>
+              <div class="form-warning">
+                <img src="../../img/sprite/warning-icon.svg" alt="warning-icon">
+              </div>
+              <div class="form-point">
+                <div class="form-tooltip">
+                  Сообщение
+                </div>
+              </div>
+            </div>
+            <div class="form-fields__item">
+              <input type="text" placeholder="Email" required name="Email" class="form-fields__input input-mail">
+              <div class="form-warning">
+                <img src="../../img/sprite/warning-icon.svg" alt="warning-icon">
+              </div>
+              <div class="form-point">
+                <div class="form-tooltip">
+                  Email
+                </div>
+              </div>
+            </div>
+            <div class="form-fields__item">
+              <input required type="tel" name="Телефон" placeholder="Телефон
+" class="form-fields__input input-tel">
+              <div class="form-warning">
+                <img src="../../img/sprite/warning-icon.svg" alt="warning-icon">
+              </div>
+              <div class="form-point">
+                <div class="form-tooltip">
+                  Телефон
+                </div>
+              </div>
+            </div>
+            <div class="form-fields__item">
+              <input required type="text" name="Имя" placeholder="Имя" class="form-fields__input input-user">
+              <div class="form-warning">
+                <img src="../../img/sprite/warning-icon.svg" alt="warning-icon">
+              </div>
+              <div class="form-point">
+                <div class="form-tooltip">
+                  Пожалуйста введите ваше имя
+                </div>
+              </div>
+            </div>
+          </div>
+          <button class="form-send">
+            <span class="form-send__text">Отправить</span>
+          </button>
+        </form>
+      </div>
+      <div class="modal-result">
+        <div class="modal-inner">
+          <div class="modal-heading">
+            <div class="modal-title">
+              Спасибо !
+            </div>
+            <div class="modal-sub">Мы ответим вам в течении одного рабочего дня</div>
+          </div>
+          <button class="modal-return close-trigger">
+            Обратно к главной странице
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <header class="header">
+  <div class="header-dynamic header-top">
+    <div class="header__wrapper container">
+      <div class="header-row">
+        <a href="/" class="header-logo">
+          <div class="header-logo__icon">
+            <img src="../img/header/header-logo.svg" alt="header-logo">
+          </div>
+          <div class="header-logo__hidden">
+            <img src="../img/header/logo-hidden.svg" alt="hidden-info">
+          </div>
+        </a>
+        <div class="header-row__col">
+          <button class="header-btn button modal-trigger">
+            <span class="button-text">
+              Заказать проект
+
+            </span>
+          </button>
+          <button class="header-lang">
+            <div class="header-lang__selected">
+              ru
+            </div>
+            <div class="header-lang__hidden">
+              <ul class="header-lang__list">
+                <li class="header-lang__item">
+                  <a href="index.html">
+                    eng
+                  </a>
+                </li>
+                <li class="header-lang__item">
+                  <a href="index-ge.html">
+                    ge
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </button>
+        </div>
+        <button class="header-burger">
+          <span class="header-burger__bar"></span>
+          <span class="header-burger__bar"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="header__container container">
+    <div class="header__body">
+      <div class="header-content col-10">
+        <h1 class="header-title def-header ">QWERTY – КОМАНДА, КОТОРАЯ СОЗДАЕТ
+          <br class="header-divider"><span class="header-output"></span></h1>
+        <div class="header-arrow">
+          <img src="../img/header/arrow.webp" alt="header-logo">
+        </div>
+        <div class="header-info">
+          <p>
+            Мы предлагаем нестандартный подход к предоставлению веб услуг, брендинга и цифрового маркетинга.
+
+          </p>
+        </div>
+        <button class="header-mob-btn button modal-trigger">
+          <span class="button-text">Заказать проект
+</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+  <div class="navbar">
+  <div class="navbar__container container">
+    <ul class="navbar-list">
+      <li class="navbar-list__item" data-id="1">
+        <a href="#section-1" class="navbar-list__link">Проекты</a>
+      </li>
+      <li class="navbar-list__item" data-id="2">
+        <a href="#section-2" class="navbar-list__link">Услуги</a>
+      </li>
+      <li class="navbar-list__item" data-id="3">
+        <a href="#section-3" class="navbar-list__link">Миссия
+        </a>
+      </li>
+      <li class="navbar-list__item" data-id="4">
+        <a href="#section-4" class="navbar-list__link">Контакты</a>
+      </li>
+    </ul>
+    <div class="navbar-options">
+      <button class="header-lang">
+        <div class="header-lang__selected">
+          ru
+        </div>
+        <div class="header-lang__hidden">
+          <ul class="header-lang__list">
+            <li class="header-lang__item">
+              <a href="index-ge.html">
+                ge
+              </a>
+            </li>
+            <li class="header-lang__item">
+              <a href="index.html">
+                eng
+              </a>
+            </li>
+          </ul>
+        </div>
+      </button>
+      <button class="navbar-button header-mob-btn button modal-trigger">
+        <span class="button-text">Заказать проект
+</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+  <main>
+    <button class="fixed-button modal-trigger">
+      <span class="fixed-button__text">Связаться
+      </span>
+    </button>
+    <section class="projects section section-1 section-white" data-id="1" id="section-1">
+  <div class="projects__container container">
+    <div class="projects__inner col-10">
+      <ul class="projects-grid">
+        <a href="#" target="_blank" class="projects-grid__item">
+          <div class="projects-grid__item-image">
+            <img src="../img/gallery/gallery-pink-image-height.jpg" alt="projects-image">
+          </div>
+          <div class="projects-grid__content">
+            <div class="projects-grid__content-header">
+              Monograph
+            </div>
+            <div class="projects-grid__content-info">
+              <ul class="projects-grid__list">
+                <li class="projects-grid__list-item">
+                  DIGITAL & WEB
+                </li>
+                <li class="projects-grid__list-item">
+                  КРЕАТИВ & СТРАТЕГИЯ
+                </li>
+              </ul>
+            </div>
+          </div>
+        </a>
+        <a href="#" target="_blank" class="projects-grid__item">
+          <div class="projects-grid__item-image">
+            <img src="../img/gallery/projects-box.webp" alt="projects-image">
+          </div>
+          <div class="projects-grid__content">
+            <div class="projects-grid__content-header">
+              Monograph
+            </div>
+            <div class="projects-grid__content-info">
+              <ul class="projects-grid__list">
+                <li class="projects-grid__list-item">
+                  DIGITAL & WEB
+                </li>
+                <li class="projects-grid__list-item">
+                  КРЕАТИВ & СТРАТЕГИЯ
+                </li>
+              </ul>
+            </div>
+          </div>
+        </a>
+        <a href="#" target="_blank" class="projects-grid__item">
+          <div class="projects-grid__item-image">
+            <img src="../img/gallery/gallery-yellow-image.jpg" class="projects-grid__image-main" alt="projects-image">
+            <img class="projects-grid__image-hidden" src="../img/gallery/projects-image-citrus.webp" alt="projects-image">
+          </div>
+          <div class="projects-grid__content">
+            <div class="projects-grid__content-header">
+              Monograph
+            </div>
+            <div class="projects-grid__content-info">
+              <ul class="projects-grid__list">
+                <li class="projects-grid__list-item">
+                  DIGITAL & WEB
+                </li>
+                <li class="projects-grid__list-item">
+                  КРЕАТИВ & СТРАТЕГИЯ
+                </li>
+              </ul>
+            </div>
+          </div>
+        </a>
+        <a href="single-ru.html" target="_blank" class="projects-grid__item projects-grid__item--visible">
+          <div class="projects-grid__item-image">
+            <video class="projects-grid__item-video" autoplay muted loop>
+              <source src="../img/gallery/Mono_gif.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="projects-grid__content">
+            <div class="projects-grid__content-header">
+              Monograph
+            </div>
+            <div class="projects-grid__content-info">
+              <ul class="projects-grid__list">
+                <li class="projects-grid__list-item">
+                  DIGITAL & WEB
+                </li>
+                <li class="projects-grid__list-item">
+                  КРЕАТИВ & СТРАТЕГИЯ
+                </li>
+              </ul>
+            </div>
+          </div>
+        </a>
+        <a href="#" target="_blank" class="projects-grid__item projects-grid__item--visible">
+          <div class="projects-grid__item-image">
+            <img src="../img/gallery/projects-image-flowers.webp" alt="projects-image">
+          </div>
+          <div class="projects-grid__content">
+            <div class="projects-grid__content-header">
+              Monograph
+            </div>
+            <div class="projects-grid__content-info">
+              <ul class="projects-grid__list">
+                <li class="projects-grid__list-item">
+                  DIGITAL & WEB
+                </li>
+                <li class="projects-grid__list-item">
+                  КРЕАТИВ & СТРАТЕГИЯ
+                </li>
+              </ul>
+            </div>
+          </div>
+        </a>
+        <a href="#" target="_blank" class="projects-grid__item projects-grid__item--visible">
+          <div class="projects-grid__item-image">
+            <img src="../img/gallery/gallery-red-image.webp" class="projects-grid__image-hidden" alt="projects-image">
+            <img src="../img/gallery/projects-image-eyes.webp" class="projects-grid__image-main" alt="projects-image">
+          </div>
+          <div class="projects-grid__content">
+            <div class="projects-grid__content-header">
+              Monograph
+            </div>
+            <div class="projects-grid__content-info">
+              <ul class="projects-grid__list">
+                <li class="projects-grid__list-item">
+                  DIGITAL & WEB
+                </li>
+                <li class="projects-grid__list-item">
+                  КРЕАТИВ & СТРАТЕГИЯ
+                </li>
+              </ul>
+            </div>
+          </div>
+        </a>
+        <a href="#" target="_blank" class="projects-grid__item">
+          <div class="projects-grid__item-image">
+            <img src="../img/gallery/gallery-pink-image.webp" class="projects-grid__image-main" alt="projects-image">
+            <img src="../img/gallery/projects-image-banana-sliced.webp" class="projects-grid__image-hidden" alt="projects-image">
+          </div>
+          <div class="projects-grid__content">
+            <div class="projects-grid__content-header">
+              Monograph
+            </div>
+            <div class="projects-grid__content-info">
+              <ul class="projects-grid__list">
+                <li class="projects-grid__list-item">
+                  DIGITAL & WEB
+                </li>
+                <li class="projects-grid__list-item">
+                  КРЕАТИВ & СТРАТЕГИЯ
+                </li>
+              </ul>
+            </div>
+          </div>
+        </a>
+      </ul>
+    </div>
+  </div>
+</section>
+
+    <section class="services section section-2 section-white" data-id="2" id="section-2">
+  <div class="services__container container">
+    <div class="services__body col-10">
+      <ul class="services__items">
+        <li class="services__box card">
+          <div class="card-grid">
+            <div class="card-grid__content">
+              <button class="card-collapse">
+                <span class="card-collapse__bar"></span>
+                <span class="card-collapse__bar"></span>
+              </button>
+              <div class="card-grid__inner">
+                <div class="card-grid__header">
+                  DIGITAL & WEB
+                </div>
+                <ul class="card-list card-list--mob">
+                  <li class="card-list__item">
+                    <span class="card-list__item-bullet card-list__item-bullet--square"></span> Website development <br class="card-text-divider"> and support
+                  </li>
+                  <li class="card-list__item">
+                    <span class="card-list__item-bullet card-list__item-bullet--square"></span> Разработка мобильных приложений
+                  </li>
+                  <li class="card-list__item">
+                    <span class="card-list__item-bullet card-list__item-bullet--square"></span> Контекстная реклама
+                  </li>
+                  <li class="card-list__item">
+                    <span class="card-list__item-bullet card-list__item-bullet--square"></span> Email маркетинг
+                  </li>
+                </ul>
+                <div class="card-grid__info">
+                  <p>
+                    We have a dynamic team of developers and we are used to the agile framework. We can start our journey with just an idea and leave you with a fully functional product with a market share.
+                  </p>
+                </div>
+                <button data-order="1" class="card-grid__btn modal-trigger">
+                  <div class="card-grid__btn-price">
+                    From <span>1 450 $</span>
+                  </div>
+                  <div class="card-grid__overlay button">
+                    <span class="button-text">Заказать проект
+</span>
+                  </div>
+                </button>
+              </div>
+              <ul class="card-list card-list--desk">
+                <li class="card-list__item">
+                  <span class="card-list__item-bullet card-list__item-bullet--square"></span> Website development <br> and support
+                </li>
+                <li class="card-list__item">
+                  <span class="card-list__item-bullet card-list__item-bullet--square"></span> Разработка мобильных приложений
+                </li>
+                <li class="card-list__item">
+                  <span class="card-list__item-bullet card-list__item-bullet--square"></span> Контекстная реклама
+                </li>
+                <li class="card-list__item">
+                  <span class="card-list__item-bullet card-list__item-bullet--square"></span> Email маркетинг
+                </li>
+              </ul>
+            </div>
+            <div class="card-order">01</div>
+          </div>
+        </li>
+        <li class="services__box card">
+          <div class="card-grid">
+            <button class="card-collapse">
+              <span class="card-collapse__bar"></span>
+              <span class="card-collapse__bar"></span>
+            </button>
+            <div class="card-grid__content">
+              <div class="card-grid__inner">
+                <div class="card-grid__header">
+                  Дизайн
+
+                </div>
+                <ul class="card-list card-list--mob">
+                  <li class="card-list__item">
+                    <span class="card-list__item-bullet card-list__item-bullet--square"></span> 2D и 3D анимационная графика
+                  </li>
+                  <li class="card-list__item">
+                    <span class="card-list__item-bullet card-list__item-bullet--square"></span> Лого & брендинг
+                  </li>
+                  <li class="card-list__item">
+                    <span class="card-list__item-bullet card-list__item-bullet--square"></span> Graphic Дизайн
+
+                  </li>
+                </ul>
+                <div class="card-grid__info">
+                  <p>
+                    Working with Продюсирование
+ team during all stages of project creation: from idea generation and product definition to prototyping and specifying development strategy that is based on business goals and target audience requirements.
+                  </p>
+                </div>
+                <button data-order="2" class="card-grid__btn modal-trigger">
+                  <div class="card-grid__btn-price">
+                    From <span>1 450 $</span>
+                  </div>
+                  <div class="card-grid__overlay button">
+                    <span class="button-text">Заказать проект
+</span>
+                  </div>
+                </button>
+              </div>
+              <ul class="card-list card-list--desk">
+                <li class="card-list__item">
+                  <span class="card-list__item-bullet card-list__item-bullet--square"></span> 2D и 3D анимационная графика
+                </li>
+                <li class="card-list__item">
+                  <span class="card-list__item-bullet card-list__item-bullet--square"></span> Лого & брендинг
+                </li>
+                <li class="card-list__item">
+                  <span class="card-list__item-bullet card-list__item-bullet--square"></span> Graphic Дизайн
+
+                </li>
+              </ul>
+            </div>
+            <div class="card-order">02</div>
+          </div>
+        </li>
+        <li class="services__box card">
+          <div class="card-grid">
+            <button class="card-collapse">
+              <span class="card-collapse__bar"></span>
+              <span class="card-collapse__bar"></span>
+            </button>
+            <div class="card-grid__content">
+              <div class="card-grid__inner">
+                <div class="card-grid__header">
+                  КРЕАТИВ & СТРАТЕГИЯ
+                </div>
+                <ul class="card-list card-list--mob">
+                  <li class="card-list__item">
+                    <span class="card-list__item-bullet card-list__item-bullet--square"></span> Креативные решения
+                  </li>
+                  <li class="card-list__item">
+                    <span class="card-list__item-bullet card-list__item-bullet--square"></span> Стратегия продукта
+                  </li>
+                </ul>
+                <div class="card-grid__info">
+                  <p>
+                    Developing and formalizing creative concepts. We always keep our minds open to new directions and techniques.
+                  </p>
+                </div>
+                <button data-order="3" class="card-grid__btn modal-trigger">
+                  <div class="card-grid__btn-price">
+                    From <span>2 250 $</span>
+                  </div>
+                  <div class="card-grid__overlay button">
+                    <span class="button-text">Заказать проект
+</span>
+                  </div>
+                </button>
+              </div>
+              <ul class="card-list card-list--desk">
+                <li class="card-list__item">
+                  <span class="card-list__item-bullet card-list__item-bullet--square"></span> Креативные решения
+                </li>
+                <li class="card-list__item">
+                  <span class="card-list__item-bullet card-list__item-bullet--square"></span> Стратегия продукта
+                </li>
+              </ul>
+            </div>
+            <div class="card-order">03</div>
+          </div>
+        </li>
+        <li class="services__box card">
+          <div class="card-grid">
+            <button class="card-collapse">
+              <span class="card-collapse__bar"></span>
+              <span class="card-collapse__bar"></span>
+            </button>
+            <div class="card-grid__content">
+              <div class="card-grid__inner">
+                <div class="card-grid__header">
+                  Продюсирование
+
+                </div>
+                <ul class="card-list card-list--mob">
+                  <li class="card-list__item">
+                    <span class="card-list__item-bullet card-list__item-bullet--square"></span> Photo Продюсирование
+
+                  </li>
+                  <li class="card-list__item">
+                    <span class="card-list__item-bullet card-list__item-bullet--square"></span> Video Продюсирование
+
+                  </li>
+                </ul>
+                <div class="card-grid__info">
+                  <p>
+                    Our collective of experienced artists who are constantly pushing their limits to reach new goals and raise to the new levels. By gathering best talents into one well organized team, we're constantly growing, exploring new Дизайн
+ fields, styles, techniques to achieve best results and provide the most incredible visual solutions of any kind.
+                  </p>
+                </div>
+                <button data-order="4" class="card-grid__btn modal-trigger">
+                  <div class="card-grid__btn-price">
+                    From <span>1 050 $</span>
+                  </div>
+                  <div class="card-grid__overlay button">
+                    <span class="button-text">Заказать проект
+</span>
+                  </div>
+                </button>
+              </div>
+              <ul class="card-list card-list--desk">
+                <li class="card-list__item">
+                  <span class="card-list__item-bullet card-list__item-bullet--square"></span> Photo Продюсирование
+
+                </li>
+                <li class="card-list__item">
+                  <span class="card-list__item-bullet card-list__item-bullet--square"></span> Video Продюсирование
+
+                </li>
+              </ul>
+            </div>
+            <div class="card-order">04</div>
+          </div>
+        </li>
+        <li class="services__box card">
+          <div class="card-grid">
+            <button class="card-collapse">
+              <span class="card-collapse__bar"></span>
+              <span class="card-collapse__bar"></span>
+            </button>
+            <div class="card-grid__content">
+              <div class="card-grid__inner">
+                <div class="card-grid__header">
+                  smm
+                </div>
+                <ul class="card-list card-list--mob">
+                  <li class="card-list__item">
+                    <span class="card-list__item-bullet card-list__item-bullet--triangle"></span> Контент маркетинг
+                  </li>
+                  <li class="card-list__item">
+                    <span class="card-list__item-bullet card-list__item-bullet--triangle"></span> Разработка мобильных приложений
+                  </li>
+                </ul>
+                <div class="card-grid__info">
+                  <p>
+                    We offer social media services and search engine service. We create and manage top-performing social media campaigns for businesses. Our company manages social media networks on your behalf. We use relevant social media marketing services to help businesses grow and meet their goals.
+                  </p>
+                </div>
+                <button data-order="5" class="card-grid__btn modal-trigger">
+                  <div class="card-grid__btn-price">
+                    From <span>1 050 $</span>
+                  </div>
+                  <div class="card-grid__overlay button">
+                    <span class="button-text">Заказать проект
+</span>
+                  </div>
+                </button>
+              </div>
+              <ul class="card-list card-list--desk">
+                <li class="card-list__item">
+                  <span class="card-list__item-bullet card-list__item-bullet--triangle"></span> Контент маркетинг
+                </li>
+                <li class="card-list__item">
+                  <span class="card-list__item-bullet card-list__item-bullet--triangle"></span> Разработка мобильных приложений
+                </li>
+              </ul>
+            </div>
+            <div class="card-order">05</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+    <section class="mission section section-3" data-id="3" id="section-3">
+  <div class="mission__container container">
+    <div class="mission__body col-10">
+        <h2 class="mission__head">
+          <span>ПОЧЕМУ ВАМ НУЖЕН ВЕБ-САЙТ?
+          </span>
+        </h2>
+      <div class="mission__row figures">
+        <div class="figures__item">
+          <div class="figures__shape figures__shape--square">
+
+          </div>
+          <div class="figures__shape-content">
+            УЛУЧШЕНИЕ ВОВЛЕЧЕНИЯ И ПОДДЕРЖКИ КЛИЕНТОВ
+          </div>
+        </div>
+        <div class="figures__item">
+          <div class="figures__shape figures__shape--circle">
+
+          </div>
+          <div class="figures__shape-content">
+            РАСШИРЕНИЕ АССОРТИМЕНТА ТОВАРОВ И УСЛУГ
+          </div>
+        </div>
+        <div class="figures__item">
+          <div class="figures__shape figures__shape--triangle">
+
+          </div>
+          <div class="figures__shape-content">
+            Создайте профессиональное присутствие в интернете
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  </main>
+
+  <section class="contact section section-4" data-id="4" id="section-4">
+  <div class="contact__container container">
+    <div class="contact-grid col-10">
+      <h3 class="contact-title def-header">
+        ПОГНАЛИ ВМЕСТЕ С НАМИ!
+      </h3>
+      <div class="contact-arrow">
+        <img src="../img/header/arrow.webp" alt="arrow-icon">
+      </div>
+      <ul class="contact-links">
+        <li class="contact-links__item">
+          <a href="tel:+995591051591" class="contact-links__ref">+995 591 051 591</a>
+        </li>
+        <li class="contact-links__item">
+          <a href="mailto:hello@qwerty.agency" class="contact-links__ref">hello@qwerty.agency</a>
+        </li>
+      </ul>
+      <ul class="contact-nav">
+        <li class="contact-nav__item">
+          <a target="_blank" href="https://t.me/qwerty_agency" class="contact-nav__link">Telegram
+          </a>
+        </li>
+        <li class="contact-nav__item">
+          <a target="_blank" href="https://www.behance.net/qwerty_agency" class="contact-nav__link">behance
+          </a>
+        </li>
+        <li class="contact-nav__item">
+          <a target="_blank" href="https://www.facebook.com/qwerty.co.llc" class="contact-nav__link">facebook
+          </a>
+        </li>
+        <li class="contact-nav__item">
+          <a target="_blank" href="https://www.instagram.com/qwerty.agency/" class="contact-nav__link">instagram
+          </a>
+        </li>
+      </ul>
+      <div class="button-container">
+        <button class="contact-button button modal-trigger">
+          <span class="button-text">
+            Заказать проект
+
+          </span>
+        </button>
+      </div>
+    </div>
+    <div  class="contact-logo">
+      <a href="/" class="contact-logo__icon-container">
+        <div class="contact-logo__icon header-logo__icon">
+          <img src="../img/header/header-logo.svg" alt="header-logo">
+        </div>
+        <div class="header-logo__hidden contact-logo__hidden">
+          <img src="../img/header/logo-hidden.svg" alt="hidden-info">
+        </div>
+      </a>
+      <div class="contact-logo__info">
+        <div class="contact-logo__info-text">
+          © 2023 Qwerty.Agency
+        </div>
+        <div class="contact-logo__info-text">
+          Условия использования
+        </div>
+      </div>
+    </div>
+  </div>
+  </section>
+
+
+
+</body>
+<script src="js/main.js"></script>
+
+</html>

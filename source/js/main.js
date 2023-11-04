@@ -218,13 +218,33 @@ if (document.querySelector('.header-output')) {
       m.message = 0;
       m.current_length = 0;
       m.fadeBuffer = false;
-      m.messages = [
-        'WEBSITES',
-        'APPS',
-        'DESIGN',
-        'MARKETING',
-        'STRATEGY'
-      ];
+      if (window.location.href.includes('index.html')) {
+        m.messages = [
+          'WEBSITES',
+          'APPS',
+          'DESIGN',
+          'MARKETING',
+          'STRATEGY'
+        ];
+      }
+      if (window.location.href.includes('index-ge.html')) {
+        m.messages = [
+          'ვებსაიტები',
+          'აპები',
+          'დიზაინი',
+          'მარკეტინგი',
+          'სტრატეგია'
+        ];
+      }
+      if (window.location.href.includes('index-ru.html')) {
+        m.messages = [
+          'ВЕБСАЙТЫ',
+          'ПРИЛОЖЕНИЯ',
+          'ДИЗАЙН',
+          'МАРКЕТИНГ',
+          'СТРАТЕГИЯ'
+        ];
+      }
 
       setTimeout(m.animateIn, 50); // Уменьшили задержку до 50 миллисекунд
     };

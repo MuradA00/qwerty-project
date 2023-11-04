@@ -123,6 +123,7 @@
   &-grid {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
+    align-items: center;
     grid-gap: 40px 0;
     grid-template-areas:
     'title title title title title arrow arrow'
@@ -137,6 +138,7 @@
   .contact {
     &-grid {
       margin-bottom: 40px;
+      align-items: flex-start !important;
     }
     &-logo {
       flex-direction: row;

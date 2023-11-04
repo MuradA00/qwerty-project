@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="Ru-ru">
+<html lang="En-en">
 @include('partials/head.html')
 
 <header class="header header--single">
@@ -23,23 +23,24 @@
       <div class="header-row__col">
         <button class="header-btn button modal-trigger">
           <span class="button-text">
-            leave request
+            Заказать проект
+
           </span>
         </button>
         <button class="header-lang">
           <div class="header-lang__selected">
-            eng
+            ru
           </div>
           <div class="header-lang__hidden">
             <ul class="header-lang__list">
               <li class="header-lang__item">
-                <a href="index-ge.html">
-                  ge
+                <a href="index.html">
+                  eng
                 </a>
               </li>
               <li class="header-lang__item">
-                <a href="index-ru.html">
-                  ru
+                <a href="index-ge.html">
+                  ge
                 </a>
               </li>
             </ul>
@@ -55,15 +56,134 @@
 </header>
 
 <body class="body-white">
-  @include('partials/components/_modal.html')
+  <div class="modal">
+    <div class="modal-container">
+      <div class="modal-body">
+        <button class="modal-close close-trigger">
+          <span class="modal-close__bar"></span>
+          <span class="modal-close__bar"></span>
+        </button>
+        <div class="modal-content">
+          <div class="modal-filter">
+            <div class="modal-filter__header">
+              Какие задачи перед нами стоят?
+            </div>
+          </div>
+          <form action="#" class="form">
+            <ul class="modal-row">
+              <label data-order="2" class="modal-row__toggle">
+                  Дизайн
+
+                <input class="input-checkbox" type="checkbox" name="Дизайн
+  ">
+              </label>
+              <label data-order="1" class="modal-row__toggle">
+                DIGITAL & WEB
+              <input class="input-checkbox" type="checkbox" name="DIGITAL">
+            </label>
+              <label data-order="3" class="modal-row__toggle">
+                  КРЕАТИВ & СТРАТЕГИЯ
+                <input class="input-checkbox" type="checkbox" name="CREATIVE & STRATEGY">
+              </label>
+              <label data-order="4" class="modal-row__toggle">
+                  Продюсирование
+
+                <input class="input-checkbox" type="checkbox" name="Продюсирование
+  ">
+              </label>
+              <label data-order="5" class="modal-row__toggle">
+                  smm
+                <input class="input-checkbox" type="checkbox" name="SMM">
+              </label>
+            </ul>
+            <div class="form-fields">
+              <div class="form-fields__item">
+                <input required type="text" name="Компания" placeholder="Компания" class="form-fields__input input-company">
+                <div class="form-warning">
+                  <img src="../../img/sprite/warning-icon.svg" alt="warning-icon">
+                </div>
+                <div class="form-point">
+                  <div class="form-tooltip">
+                    Название компании
+                  </div>
+                </div>
+              </div>
+              <div class="form-fields__item">
+                <textarea class="form-fields__input input-message" name="Message" placeholder="Несколько слов о проекте и бюджете
+                "></textarea>
+                <div class="form-warning">
+                  <img src="../../img/sprite/warning-icon.svg" alt="warning-icon">
+                </div>
+                <div class="form-point">
+                  <div class="form-tooltip">
+                    Сообщение
+                  </div>
+                </div>
+              </div>
+              <div class="form-fields__item">
+                <input type="text" placeholder="Email" required name="Email" class="form-fields__input input-mail">
+                <div class="form-warning">
+                  <img src="../../img/sprite/warning-icon.svg" alt="warning-icon">
+                </div>
+                <div class="form-point">
+                  <div class="form-tooltip">
+                    Email
+                  </div>
+                </div>
+              </div>
+              <div class="form-fields__item">
+                <input required type="tel" name="Телефон" placeholder="Телефон
+  " class="form-fields__input input-tel">
+                <div class="form-warning">
+                  <img src="../../img/sprite/warning-icon.svg" alt="warning-icon">
+                </div>
+                <div class="form-point">
+                  <div class="form-tooltip">
+                    Телефон
+                  </div>
+                </div>
+              </div>
+              <div class="form-fields__item">
+                <input required type="text" name="Имя" placeholder="Имя" class="form-fields__input input-user">
+                <div class="form-warning">
+                  <img src="../../img/sprite/warning-icon.svg" alt="warning-icon">
+                </div>
+                <div class="form-point">
+                  <div class="form-tooltip">
+                    Пожалуйста введите ваше имя
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button class="form-send">
+              <span class="form-send__text">Отправить</span>
+            </button>
+          </form>
+        </div>
+        <div class="modal-result">
+          <div class="modal-inner">
+            <div class="modal-heading">
+              <div class="modal-title">
+                Спасибо !
+              </div>
+              <div class="modal-sub">Мы ответим вам в течении одного рабочего дня</div>
+            </div>
+            <button class="modal-return close-trigger">
+              Обратно к главной странице
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
   <div class="navbar navbar--single">
     <div class="navbar__container container">
       <ul class="navbar-list">
         <li class="navbar-list__item" data-id="1">
-          <a href="#section-1" class="navbar-list__link">Section</a>
+          <a href="#section-1" class="navbar-list__link">Секция</a>
         </li>
         <li class="navbar-list__item" data-id="2">
-          <a href="#section-2" class="navbar-list__link">Mission</a>
+          <a href="#section-2" class="navbar-list__link">Миссия</a>
         </li>
       </ul>
       <div class="navbar-options">
@@ -90,7 +210,7 @@
   </div>
   <main>
     <button class="fixed-button modal-trigger">
-      <span class="fixed-button__text">get in touch</span>
+      <span class="fixed-button__text">Связаться</span>
     </button>
     <section class="single section section-white" data-id="1" id="section-1">
       <div class="single-container container">
@@ -105,17 +225,19 @@
                   DIGITAL & WEB
                 </div>
                 <div class="single-header__labels-item">
-                  CREATIVE & STRATEGY
+                  КРЕАТИВ & СТРАТЕГИЯ
+
                 </div>
               </div>
               <div class="single-header__content">
                 <div class="single-about">
                   <div class="single-about__heading">
-                    About
+                    О
                   </div>
                   <div class="single-about__info">
                     <p class="single-text">
-                      Everything has a story to tell here at Monograph Freedom Square. The location and historic building capture the essence of hotel. Every detail meticulously designed creating a new style of Georgian luxury
+                      Здесь, в бутик отеле Monograph Freedom Square, у всего есть своя история. Расположение и историческое здание отражают суть отеля. Каждая деталь тщательно продумана, создавая новый стиль грузинской роскоши.
+
                     </p>
                   </div>
                 </div>
@@ -141,28 +263,30 @@
             <div class="single-content">
               <div class="single-info">
                 <div class="single-info__heading">
-                  Mission
+                  Миссия
                 </div>
                 <div class="single-info__descr">
                   <p class="single-text">
-                    Qwerty was commissioned to assist Monograph team with the production of an experience website dedicated to the opening of their brand new 5* the Monograph Freedom Square Boutique hotel in Tbilisi, Georgia.
+                    Qwerty было поручено помочь команде Monograph в создании интерактивного веб-сайта, посвященного открытию их нового 5-звездочного бутик-отеля Monograph Freedom Square в Тбилиси, Грузия.
+
                   </p>
                 </div>
               </div>
               <div class="single-info">
                 <div class="single-info__heading">
-                  Mission
+                  Миссия
                 </div>
                 <div class="single-info__descr">
                   <p class="single-text">
-                    It was our job to translate an atmosphere of greater subtlety and refinement, into a one-of-a-kind online experience. The website functions as a bespoke content hub for customers to explore everything this brand new hotel has to offer.
+                    Нашей задачей было транслировать атмосферу большей утонченности и изысканности в уникальный онлайн-опыт. Веб-сайт функционирует как специализированный центр контента, позволяющий клиентам изучить все, что может предложить новый отель.
+
                   </p>
                 </div>
               </div>
             </div>
             <a href="https://www.behance.net/gallery/98232971/Monograph-Freedom-Square" target="_blank" class="single-more">
               <span class="single-more__text">
-                see more
+                Больше
               </span>
             </a>
           </div>
@@ -171,7 +295,7 @@
       <div class="bottom-heading container">
         <div class="bottom-heading__inner col-10">
           <div class="bottom-heading__title">
-            See also
+            Еще
           </div>
         </div>
       </div>
@@ -216,11 +340,11 @@
     </section>
   </main>
 
-  <section class="contact section section-4" data-id="4" id="section-2">
+  <section class="contact section section-4" data-id="2" id="section-2">
     <div class="contact__container container">
       <div class="contact-grid col-10">
         <h3 class="contact-title def-header">
-          let’s roll with the best DIGITAL AGENCY IN GEORGIA.
+          ПОГНАЛИ ВМЕСТЕ С НАМИ!
         </h3>
         <div class="contact-arrow">
           <img src="../img/header/arrow.webp" alt="arrow-icon">
@@ -254,7 +378,8 @@
         <div class="button-container">
           <button class="contact-button button modal-trigger">
             <span class="button-text">
-              leave request
+              Заказать проект
+
             </span>
           </button>
         </div>
@@ -273,7 +398,7 @@
             © 2023 Qwerty.Agency
           </div>
           <div class="contact-logo__info-text">
-            Terms & Conditions
+            Условия использования
           </div>
         </div>
       </div>

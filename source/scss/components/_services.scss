@@ -16,7 +16,13 @@
   padding: var(--root-card-py) var(--root-card-px);
 
   border: 1px solid rgba(var(--cl-b),1);
-
+  &-grid {
+    &__overlay {
+      min-height: 54px;
+      padding: 0 12px;
+      width: 100%;
+    }
+  }
   &:not(:last-child) {
     margin-bottom: 10px;
   }

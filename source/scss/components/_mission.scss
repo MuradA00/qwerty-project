@@ -82,7 +82,7 @@
     transition: all 400ms ease;
 
     &-content {
-      font-size: clamp(var(--t-md), 1.625vw, var(--t-xxl));
+      font-size: clamp(var(--t-md), 1.375vw, 22px);
       font-weight: 500;
       text-transform: uppercase;
 

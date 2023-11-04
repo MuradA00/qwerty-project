@@ -3,6 +3,27 @@
 
   z-index: 10;
 
+  .header {
+    &-lang {
+      &__hidden {
+        padding-bottom: 1rem;
+        top: initial;
+        bottom: 100%;
+      }
+      &__item {
+        a {
+          font-size: var(--t-md);
+          font-weight: 500;
+          font-family: var(--ff-r);
+          text-transform: uppercase;
+          color: rgba(var(--cl-w), 1);
+          letter-spacing: 0.36px;
+
+        }
+      }
+    }
+  }
+
   @include laptop {
     position: fixed;
   }
@@ -11,6 +32,12 @@
       &-list {
         top: 180px;
         transform: translateY(0);
+
+        &__link {
+          &--hl {
+            color: rgba(var(--cl-b), 1);
+          }
+        }
       }
     }
   }
