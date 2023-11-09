@@ -218,7 +218,7 @@ if (document.querySelector('.header-output')) {
       m.message = 0;
       m.current_length = 0;
       m.fadeBuffer = false;
-      if (window.location.href.includes('index.html')) {
+      if (document.documentElement.getAttribute('lang') === 'En-en') {
         m.messages = [
           'WEBSITES',
           'APPS',
@@ -227,7 +227,7 @@ if (document.querySelector('.header-output')) {
           'STRATEGY'
         ];
       }
-      if (window.location.href.includes('index-ge.html')) {
+      if (document.documentElement.getAttribute('lang') === 'Ge-ge') {
         m.messages = [
           'ვებსაიტები',
           'აპები',
@@ -236,7 +236,7 @@ if (document.querySelector('.header-output')) {
           'სტრატეგია'
         ];
       }
-      if (window.location.href.includes('index-ru.html')) {
+      if (document.documentElement.getAttribute('lang') === 'Ru-ru') {
         m.messages = [
           'ВЕБСАЙТЫ',
           'ПРИЛОЖЕНИЯ',
